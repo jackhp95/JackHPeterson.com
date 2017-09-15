@@ -12,3 +12,16 @@
   font-size: 0px;
   transition: font 0.3s ease;
 }
+
+.parallax {
+  background-attachment: local !important;
+}
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
