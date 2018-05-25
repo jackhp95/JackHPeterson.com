@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-black">
 
 <head>
 	<meta charset="utf-8">
 	<title>Jack H. Peterson</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://unpkg.com/tachyons@4.8.0/css/tachyons.min.css" />
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="https://rawgit.com/jackhp95/IconUtilityClasses/master/iuc.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.9.1/tachyons.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+	<link rel="stylesheet" href="./css/style.css">
 
 	<!-- Google Analytics Code -->
 	<script>
-		(function(i, s, o, g, r, a, m) {
+		(function (i, s, o, g, r, a, m) {
 			i['GoogleAnalyticsObject'] = r;
-			i[r] = i[r] || function() {
+			i[r] = i[r] || function () {
 				(i[r].q = i[r].q || []).push(arguments)
 			}, i[r].l = 1 * new Date();
 			a = s.createElement(o),
@@ -28,172 +27,180 @@
 		ga('send', 'pageview');
 	</script>
 
-	<!-- Firebase Code -->
-	<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
-	<script>
-		// Initialize Firebase
-		var config = {
-			apiKey: "AIzaSyBu6bJX-yhUJqQeGm5KloP6lQKVp8d96WY",
-			authDomain: "portfolio-8206b.firebaseapp.com",
-			databaseURL: "https://portfolio-8206b.firebaseio.com",
-			projectId: "portfolio-8206b",
-			storageBucket: "portfolio-8206b.appspot.com",
-			messagingSenderId: "674271805966"
-		};
-		firebase.initializeApp(config);
-	</script>
-
 </head>
 
-<body class="sans-serif flex w-100 vh-100 flex-column dark-gray bg-white overflow-hidden">
-	<header class="overflow-hidden z-999 h3 w-100 flex items-center justify-between ph3 bb b--black-20">
-		<nav class="flex items-center dn-l"><i class="material-icons ph2 black-40">chevron_left</i><span class="black-30 dn dib-m">back</span></nav>
-		<div class="ph3 fw7">
-			Jack H. Peterson
-		</div>
-		<nav class="flex-auto dn dib-l"><span class="black-30">> Design > Client ></span><span class="ph3 b">Project</span></nav>
-		<div class="black-50 flex flex-row">
-			<div class="dn pa2 br2 flex-ns items-center">
-				<span class="ph2 fw7 black-60 dn dib-l">alert</span>
-				<i class="material-icons ph2 black-40">notifications</i>
+<body class="vh-100 flex flex-column-ns flex-column-reverse f6 bg-black swap-font fw4 smooth-text rubik white">
+	<header class="flex-none z-max w-100 shadow-4 lg-disco tide parallax">
+		<div class="justify-between items-stretch flex overflow-auto">
+			<div class="dn flex-ns items-stretch justify-center hover-bg-black pv1">
+				<h1 class="ma0 ph3 hover-lg-disco bg-black tide white hover-text-clip parallax f5 tracked-tiny fw7 flex items-center">
+					Jack H. Peterson
+				</h1>
 			</div>
-			<div class="dn pa2 br2 flex-ns items-center">
-				<span class="ph2 fw7 black-60 dn dib-l">search</span>
-				<i class="material-icons ph2 black-40">search</i>
-			</div>
-			<div class="dn-ns pa2 br2 flex items-center">
-				<i class="material-icons ph2 black-40">more_vert</i>
-			</div>
+			<ul class="flex-auto flex justify-end-ns justify-center list ma0 pa0 flex items-center tc">
+				<div class="dn db-ns flex-auto bg-black mv1 self-stretch"></div>
+				<li class="flex-auto flex-none-ns hover-bg-black bg-transparent overflow-hidden pv1">
+					<a class="white bg-black link pa3 flex justify-center items-center" target="_blank" href="https://open.spotify.com/user/spotify/playlist/37i9dQZEVXcP4RJE7VTAfe?si=6_quKdD6QyeuEFBuPFwsRQ">
+						<span class="pa2 pt1 pl1 contain bg-center mr2" style="background-image:url('https://icongr.am/clarity/tasks.svg?color=ffffff')">
+						</span>
+						Work</a>
+				</li>
+				<li class="flex-auto flex-none-ns hover-bg-black bg-transparent overflow-hidden pv1">
+					<a class="white bg-black link pa3 flex justify-center items-center" target="_blank" href="https://open.spotify.com/user/spotify/playlist/37i9dQZEVXcP4RJE7VTAfe?si=6_quKdD6QyeuEFBuPFwsRQ">
+						<span class="pa2 pt1 pl1 contain bg-center mr2" style="background-image:url('https://icongr.am/clarity/scroll.svg?color=ffffff')">
+						</span>
+						Blog</a>
+				</li>
+				<li class="flex-auto flex-none-ns hover-bg-black bg-transparent overflow-hidden pv1">
+					<a class="white bg-black link pa3 flex justify-center items-center" target="_blank" href="https://open.spotify.com/user/spotify/playlist/37i9dQZEVXcP4RJE7VTAfe?si=6_quKdD6QyeuEFBuPFwsRQ">
+						<span class="pa2 pt1 pl1 contain bg-center mr2" style="background-image:url('https://icongr.am/clarity/flow-chart.svg?color=ffffff')">
+						</span>
+						Process</a>
+				</li>
+				<li class="flex-auto flex-none-ns hover-bg-black bg-transparent overflow-hidden pv1">
+					<a class="white bg-black link pa3 flex justify-center items-center" target="_blank" href="https://open.spotify.com/user/spotify/playlist/37i9dQZEVXcP4RJE7VTAfe?si=6_quKdD6QyeuEFBuPFwsRQ">
+						<span class="pa2 pt1 pl1 contain bg-center mr2" style="background-image:url('https://icongr.am/clarity/tools.svg?color=ffffff')">
+						</span>
+						Tools</a>
+				</li>
+			</ul>
 		</div>
 	</header>
-	<main class="overflow-hidden w-100 flex-auto flex flex-row bg-near-white">
-		<aside class="flex-ns dn flex-column justify-end fw7 pv5">
-			<div class="flex pa4">Portfolio</div>
-			<div class="flex pa4">Resume</div>
-			<div class="flex pa4">Learning</div>
-			<div class="flex pa4">Tools</div>
-		</aside>
-		<section class="overflow-auto flex flex-auto justify-center ml5-l ml3-m mr3-ns">
-			<article class="w-100 mw9 bg-white">
-				<div class="w-100 flex items-end justify-center vh-25 vh-50-ns parallax bg-bottom" style="background-image: url('https://images.unsplash.com/photo-1485458029194-00cff7de3ef7?dpr=1.75&auto=format&fit=crop&w=1500&h=1001&q=80&cs=tinysrgb&crop=')">
-					<h1 class="white f-headline-l f1 ma0 ph4 pv3 ma4 bg-black-80">Tachyons Journal</h1>
+	<main class="flex-auto flex flex-row-l flex-wrap flex-nowrap-l overflow-auto">
+		<div class="flex-auto self-center measure-wide-l  center pa3 ma4 flex flex-wrap justify-around items-center">
+			<div class="flex flex-wrap items-center justify-center">
+				<div class="ma3 flex-none grow lg-disco tide parallax br-100 relative overflow-hidden">
+					<div class="pa4 pt5 pl5 ma1 bg-center cover black br-100 ba bw2 grow-large" style="background-image:url('https://pbs.twimg.com/profile_images/921053650880839680/MxHCQiO0_400x400.jpg');"></div>
 				</div>
-				<div class="pv5 ph6 mw8 lh-copy f4">
-
-				</div>
-			</article>
-		</section>
-		<aside class="flex-l dn flex-column justify-around items-end">
-
-			<a href="https://mobile.twitter.com/JackHPeterson" target="_blank" class="hover-expand-child pv2 ph3 link white br-pill br--left flex items-center hover-bg-twitter">
-				<div class="to-expand mh2">twitter</div>
-				<div class="dib">
-					<div class="icon-twitter bg-black-20 hover-bg-white w2"></div>
-				</div>
-			</a>
-
-			<a href="https://www.instagram.com/jackhenrypeterson/" target="_blank" class="hover-expand-child pv2 ph3 link white br-pill br--left flex items-center hover-bg-instagram">
-				<div class="to-expand mh2">instagram</div>
-				<div class="dib">
-					<div class="icon-instagram hover-bg-white bg-black-20 w2"></div>
-				</div>
-			</a>
-
-			<a href="https://www.facebook.com/JackHenryPeterson" target="_blank" class="hover-expand-child pv2 ph3 link white br-pill br--left flex items-center hover-bg-facebook">
-				<div class="to-expand mh2">facebook</div>
-				<div class="dib">
-					<div class="icon-facebook bg-black-20 hover-bg-white w2"></div>
-				</div>
-			</a>
-
-			<a href="https://github.com/jackhp95" target="_blank" class="hover-expand-child pv2 ph3 link white br-pill br--left flex items-center hover-bg-github">
-				<div class="to-expand mh2">github</div>
-				<div class="dib">
-					<div class="icon-github bg-black-20 hover-bg-white w2"></div>
-				</div>
-			</a>
-
-			<a href="https://www.linkedin.com/in/jack-peterson-59385165" target="_blank" class="hover-expand-child pv2 ph3 link white br-pill br--left flex items-center hover-bg-linkedin">
-				<div class="to-expand mh2">linkedin</div>
-				<div class="dib">
-					<div class="icon-linkedin bg-black-20 hover-bg-white w2"></div>
-				</div>
-			</a>
-
-			<a href="https://www.behance.net/JackHPeterson" target="_blank" class="hover-expand-child pv2 ph3 link white br-pill br--left flex items-center hover-bg-behance">
-				<div class="to-expand mh2">behance</div>
-				<div class="dib">
-					<div class="icon-behance bg-black-20 hover-bg-white w2"></div>
-				</div>
-			</a>
-
-			<a href="https://medium.com/@JackHPeterson" target="_blank" class="hover-expand-child pv2 ph3 link white br-pill br--left flex items-center hover-bg-medium">
-				<div class="to-expand mh2">medium</div>
-				<div class="dib">
-					<div class="icon-medium bg-black-20 hover-bg-white w2"></div>
-				</div>
-			</a>
-
-			<a href="https://www.youtube.com/channel/UCfGR20xWmVwLVKnn932HVmg" target="_blank" class="hover-expand-child pv2 ph3 link white br-pill br--left flex items-center hover-bg-youtube">
-				<div class="to-expand mh2">youtube</div>
-				<div class="dib">
-					<div class="icon-youtube bg-black-20 hover-bg-white w2"></div>
-				</div>
-			</a>
-
-			<a href="https://www.paypal.me/JackHPeterson" target="_blank" class="hover-expand-child pv2 ph3 link white br-pill br--left flex items-center hover-bg-paypal">
-				<div class="to-expand mh2">paypal</div>
-				<div class="dib">
-					<div class="icon-paypal bg-black-20 hover-bg-white w2"></div>
-				</div>
-			</a>
-
-			<a href="https://codepen.io/JackHP95/pens/public/" target="_blank" class="hover-expand-child pv2 ph3 link white br-pill br--left flex items-center hover-bg-black">
-				<div class="to-expand mh2">codepen</div>
-				<div class="dib">
-					<div class="icon-codepen bg-black-20 hover-bg-white w2"></div>
-				</div>
-			</a>
-			<!--
-			<a href="https://mobile.twitter.com/JackHPeterson" target="_blank"
-				class="hover-expand-child pv2 ph3 link white br-pill br--left flex items-center hover-bg-gray">
-				<div class="to-expand mh2">etsy</div><div class="dib"><div class="icon-etsy bg-black-20 hover-bg-white w2"></div></div></a>
-
-			<a href="https://mobile.twitter.com/JackHPeterson" target="_blank"
-				class="hover-expand-child pv2 ph3 link white br-pill br--left flex items-center hover-bg-rss">
-				<div class="to-expand mh2">rss</div><div class="dib"><div class="icon-rss bg-black-20 hover-bg-white w2"></div></div></a>
-
-			<a href="https://www.pinterest.com/jackhp95/" target="_blank"
-				class="hover-expand-child pv2 ph3 link white br-pill br--left flex items-center hover-bg-pinterest">
-				<div class="to-expand mh2">pinterest</div><div class="dib"><div class="icon-pinterest bg-black-20 hover-bg-white w2"></div></div></a>
-
-			<a href="https://mobile.twitter.com/JackHPeterson" target="_blank"
-				class="hover-expand-child pv2 ph3 link white br-pill br--left flex items-center hover-bg-gray">
-				<div class="to-expand mh2">email</div><div class="dib"><div class="icon-email bg-black-20 hover-bg-white w2"></div></div></a>
-
-			<a href="https://mobile.twitter.com/JackHPeterson" target="_blank"
-				class="hover-expand-child pv2 ph3 link white br-pill br--left flex items-center hover-bg-gray">
-				<div class="to-expand mh2">vimeo</div><div class="dib"><div class="icon-vimeo bg-black-20 hover-bg-white w2"></div></div></a>
-
-			<a href="https://mobile.twitter.com/JackHPeterson" target="_blank"
-				class="hover-expand-child pv2 ph3 link white br-pill br--left flex items-center hover-bg-gray">
-				<div class="to-expand mh2">stackoverflow</div><div class="dib"><div class="icon-stackoverflow bg-black-20 hover-bg-white w2"></div></div></a>
--->
-		</aside>
+				<ul class="self-center list pa0 pl1 ma3 f5 fw4 flex-none measure lg-disco tide parallax">
+					<li class="bg-black right ph3 pv2">Create with purpose.</li>
+					<li class="bg-black right ph3 pv2">Design with intent.</li>
+					<li class="bg-black right ph3 pv2">Develop with confidence.</li>
+				</ul>
+			</div>
+			<div class="lh-solid flex-none mv3 mh3-ns mh0 flex flex-column items-stretch">
+				<h1 class="f2 fw1 self-center pa0 ma0 grow tracked-tiny fw6 hover-lg-disco bg-black tide white hover-text-clip parallax">
+					<span class="">Jack H.</span>
+					<span class="">Peterson</span>
+				</h1>
+				<div class="pt1 mv2 lg-disco tide parallax"></div>
+				<ul class="list lh-copy flex ma0 pa0 mt1 fw4 ttu f6 tracked di lg-disco tide parallax">
+					<li class="flex-auto tc bg-black">Designer</li>
+					<li class="mh1 flex-auto tc bg-black">Developer</li>
+					<li class="flex-auto tc bg-black">Creative</li>
+				</ul>
+			</div>
+			<div class="flex-auto ma3-ns ma2 measure">
+				<h2 class="flex-auto fw6 f5 mh2 mv2 bb ph0 pv1 tracked-tiny b--white-20">
+					About
+				</h2>
+				<p class="mh2 mv0 pa0 lh-copy">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur distinctio corrupti, architecto tempora labore laudantium
+					ducimus quis excepturi sequi deleniti repudiandae amet dolorem repellendus minima vitae atque quos illo esse.
+				</p>
+			</div>
+			<div class="flex-auto ma3-ns ma2 measure relative">
+				<h2 class="flex-auto fw6 f5 mh2 mv2 bb ph0 pv1 tracked-tiny b--white-20">
+					Contact
+				</h2>
+				<ul class="list ma0 pa0 lh-title mh1 fw6">
+					<li class="hide-child dib mv1 ml1">
+						<a href="sms:15733408423;?&body=message%20more%20message" target="_blank" class="up dib link white hover-dark-pink ba br2 ph2 pv1 ma0 glow pointer">
+							Text
+						</a>
+						<span class="top-0 right-0 white absolute child pt3 pr2 fw4 tracked-tiny">Text: 573 ) 340 - 8423</span>
+					</li>
+					<li class="hide-child dib mv1 ml1">
+						<a href="tel:15733408423" target="_blank" class="up dib link white hover-blue ba br2 ph2 pv1 ma0 glow pointer">
+							Call
+						</a>
+						<span class="top-0 right-0 white absolute child pt3 pr2 fw4 tracked-tiny">Call: 573 ) 340 - 8423</span>
+					</li>
+					<li class="hide-child dib mv1 ml1">
+						<a href="mailto:someone@yoursite.com?subject=Big%20News&body=Body-goes-here" target="_blank" class="up dib link white hover-red ba br2 ph2 pv1 ma0 glow pointer">
+							Email
+						</a>
+						<span class="top-0 right-0 white absolute child pt3 pr2 fw4 tracked-tiny">Email: 573 ) 340 - 8423</span>
+					</li>
+					<li class="hide-child dib mv1 ml1">
+						<a href="https://mobile.twitter.com/JackHPeterson" target="_blank" class="up dib link white hover-blue ba br2 ph2 pv1 ma0 glow pointer">
+							Twitter
+						</a>
+						<span class="top-0 right-0 white absolute child pt3 pr2 fw4 tracked-tiny">Tweet: @JackHPeterson</span>
+					</li>
+					<li class="hide-child dib mv1 ml1">
+						<a href="https://medium.com/@JackHPeterson" target="_blank" class="up dib link white hover-green ba br2 ph2 pv1 ma0 glow pointer">
+							Medium
+						</a>
+						<span class="top-0 right-0 white absolute child pt3 pr2 fw4 tracked-tiny">Claps: @JackHPeterson</span>
+					</li>
+					<li class="hide-child dib mv1 ml1">
+						<a href="https://github.com/jackhp95" target="_blank" class="up dib link white hover-purple ba br2 ph2 pv1 ma0 glow pointer">
+							GitHub
+						</a>
+						<span class="top-0 right-0 white absolute child pt3 pr2 fw4 tracked-tiny">Follow: @jackhp95</span>
+					</li>
+					<li class="hide-child dib mv1 ml1">
+						<a href="https://codepen.io/JackHP95/" target="_blank" class="up dib link white hover-gold ba br2 ph2 pv1 ma0 glow pointer">
+							CodePen
+						</a>
+						<span class="top-0 right-0 white absolute child pt3 pr2 fw4 tracked-tiny">Pens: @JackHP95</span>
+					</li>
+					<li class="hide-child dib mv1 ml1">
+						<a href="https://www.facebook.com/JackHenryPeterson" target="_blank" class="up dib link white hover-dark-blue ba br2 ph2 pv1 ma0 glow pointer">
+							Facebook
+						</a>
+						<span class="top-0 right-0 white absolute child pt3 pr2 fw4 tracked-tiny">Friend: JackHenryPeterson</span>
+					</li>
+					<li class="hide-child dib mv1 ml1">
+						<a href="https://www.instagram.com/jackhenrypeterson/" target="_blank" class="up dib link white hover-light-purple ba br2 ph2 pv1 ma0 glow pointer">
+							Instagram
+						</a>
+						<span class="top-0 right-0 white absolute child pt3 pr2 fw4 tracked-tiny">Follow: @jackhenrypeterson</span>
+					</li>
+					<li class="hide-child dib mv1 ml1">
+						<a href="https://www.linkedin.com/in/jack-peterson-59385165/" target="_blank" class="up dib link white hover-blue ba br2 ph2 pv1 ma0 glow pointer">
+							LinkedIn
+						</a>
+						<span class="top-0 right-0 white absolute child pt3 pr2 fw4 tracked-tiny">My LinkedIn Profile</span>
+					</li>
+					<li class="hide-child dib mv1 ml1">
+						<a href="https://open.spotify.com/user/spotify/playlist/37i9dQZEVXcP4RJE7VTAfe?si=qDjO0VVFQI-u0WZxVUmdIA" target="_blank"
+						    class="up dib link white hover-green ba br2 ph2 pv1 ma0 glow pointer">
+							Spotify
+						</a>
+						<span class="top-0 right-0 white absolute child pt3 pr2 fw4 tracked-tiny">My Discover Weekly</span>
+					</li>
+					<li class="hide-child dib mv1 ml1">
+						<a href="" target="_blank" class="up dib link white hover-purple ba br2 ph2 pv1 ma0 glow pointer">
+							Twitch
+						</a>
+						<span class="top-0 right-0 white absolute child pt3 pr2 fw4 tracked-tiny">Follow: jackhp95</span>
+					</li>
+					<li class="hide-child dib mv1 ml1">
+						<a href="paypal.me/JackHPeterson" target="_blank" class="up dib link white hover-blue ba br2 ph2 pv1 ma0 glow pointer">
+							PayPal
+						</a>
+						<span class="top-0 right-0 white absolute child pt3 pr2 fw4 tracked-tiny">Pay: JackHPeterson</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="flex-auto relative overflow-auto">
+			<div class="f1 flex items-center justify-center fw7 vh-100 tide parallax lg-sea-salt">
+				WORK
+			</div>
+			<div class="f1 flex items-center justify-center fw7 vh-100 tide parallax lg-mellow-yellow">
+				BLOG
+			</div>
+			<div class="f1 flex items-center justify-center fw7 vh-100 tide parallax lg-ooey-gooey">
+				PROCESS
+			</div>
+			<div class="f1 flex items-center justify-center fw7 vh-100 tide parallax lg-par-four">
+				TOOLS
+			</div>
+		</div>
 	</main>
-	<footer class="overflow-hidden z-999 h3 w-100 flex items-center justify-between ph3 bt b--black-20">
-		<section class="pa2 black-50 flex items-center justify-between br2">
-			<i class="material-icons ph2 black-40">menu</i>
-			<span class="ph2 fw7 black-60 dn dib-l">menu</span>
-		</section>
-		<section class="ph3">
-			actions
-		</section>
-		<section class="pa2 black-50 flex items-center justify-between br2">
-			<span class="ph2 fw7 black-60 dn dib-l">contact</span>
-			<i class="material-icons ph2 black-40">question_answer</i>
-		</section>
-	</footer>
 </body>
 
 </html>
