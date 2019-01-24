@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module DB.Object.ProjectsPreviousValues exposing (createdAt, description, id, link, myWork, name, status, tags, updatedAt)
+module DB.Object.ProjectPreviousValues exposing (createdAt, description, id, link, myWork, name, status, tags, updatedAt)
 
 import DB.Enum.Status
 import DB.Object
@@ -14,46 +14,46 @@ import Graphql.SelectionSet exposing (SelectionSet)
 import Json.Decode as Decode
 
 
-status : SelectionSet DB.Enum.Status.Status DB.Object.ProjectsPreviousValues
+status : SelectionSet DB.Enum.Status.Status DB.Object.ProjectPreviousValues
 status =
     Object.selectionForField "Enum.Status.Status" "status" [] DB.Enum.Status.decoder
 
 
-id : SelectionSet DB.ScalarDecoders.Id DB.Object.ProjectsPreviousValues
+id : SelectionSet DB.ScalarDecoders.Id DB.Object.ProjectPreviousValues
 id =
     Object.selectionForField "ScalarDecoders.Id" "id" [] (DB.ScalarDecoders.decoders |> DB.Scalar.unwrapDecoders |> .decoderId)
 
 
-createdAt : SelectionSet DB.ScalarDecoders.DateTime DB.Object.ProjectsPreviousValues
+createdAt : SelectionSet DB.ScalarDecoders.DateTime DB.Object.ProjectPreviousValues
 createdAt =
     Object.selectionForField "ScalarDecoders.DateTime" "createdAt" [] (DB.ScalarDecoders.decoders |> DB.Scalar.unwrapDecoders |> .decoderDateTime)
 
 
-updatedAt : SelectionSet DB.ScalarDecoders.DateTime DB.Object.ProjectsPreviousValues
+updatedAt : SelectionSet DB.ScalarDecoders.DateTime DB.Object.ProjectPreviousValues
 updatedAt =
     Object.selectionForField "ScalarDecoders.DateTime" "updatedAt" [] (DB.ScalarDecoders.decoders |> DB.Scalar.unwrapDecoders |> .decoderDateTime)
 
 
-name : SelectionSet String DB.Object.ProjectsPreviousValues
+name : SelectionSet String DB.Object.ProjectPreviousValues
 name =
     Object.selectionForField "String" "name" [] Decode.string
 
 
-description : SelectionSet (Maybe String) DB.Object.ProjectsPreviousValues
+description : SelectionSet (Maybe String) DB.Object.ProjectPreviousValues
 description =
     Object.selectionForField "(Maybe String)" "description" [] (Decode.string |> Decode.nullable)
 
 
-myWork : SelectionSet (Maybe String) DB.Object.ProjectsPreviousValues
+myWork : SelectionSet (Maybe String) DB.Object.ProjectPreviousValues
 myWork =
     Object.selectionForField "(Maybe String)" "myWork" [] (Decode.string |> Decode.nullable)
 
 
-tags : SelectionSet (List String) DB.Object.ProjectsPreviousValues
+tags : SelectionSet (List String) DB.Object.ProjectPreviousValues
 tags =
     Object.selectionForField "(List String)" "tags" [] (Decode.string |> Decode.list)
 
 
-link : SelectionSet (Maybe String) DB.Object.ProjectsPreviousValues
+link : SelectionSet (Maybe String) DB.Object.ProjectPreviousValues
 link =
     Object.selectionForField "(Maybe String)" "link" [] (Decode.string |> Decode.nullable)

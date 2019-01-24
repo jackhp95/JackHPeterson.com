@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module DB.Object.ProjectsEdge exposing (cursor, node)
+module DB.Object.ProjectEdge exposing (cursor, node)
 
 import DB.Object
 import Graphql.Internal.Builder.Object as Object
@@ -13,13 +13,13 @@ import Json.Decode as Decode
 
 {-| The item at the end of the edge.
 -}
-node : SelectionSet decodesTo DB.Object.Projects -> SelectionSet decodesTo DB.Object.ProjectsEdge
+node : SelectionSet decodesTo DB.Object.Project -> SelectionSet decodesTo DB.Object.ProjectEdge
 node object_ =
     Object.selectionForCompositeField "node" [] object_ identity
 
 
 {-| A cursor for use in pagination.
 -}
-cursor : SelectionSet String DB.Object.ProjectsEdge
+cursor : SelectionSet String DB.Object.ProjectEdge
 cursor =
     Object.selectionForField "String" "cursor" [] Decode.string

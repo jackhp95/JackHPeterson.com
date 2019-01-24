@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module DB.Object exposing (AggregateAsset(..), AggregateBlogPost(..), AggregateColor(..), AggregateContact(..), AggregateLocation(..), AggregateProjects(..), Asset(..), AssetConnection(..), AssetEdge(..), AssetPreviousValues(..), AssetSubscriptionPayload(..), BatchPayload(..), BlogPost(..), BlogPostConnection(..), BlogPostEdge(..), BlogPostPreviousValues(..), BlogPostSubscriptionPayload(..), Color(..), ColorConnection(..), ColorEdge(..), ColorPreviousValues(..), ColorSubscriptionPayload(..), Contact(..), ContactConnection(..), ContactEdge(..), ContactPreviousValues(..), ContactSubscriptionPayload(..), Location(..), LocationConnection(..), LocationEdge(..), LocationPreviousValues(..), LocationSubscriptionPayload(..), PageInfo(..), Projects(..), ProjectsConnection(..), ProjectsEdge(..), ProjectsPreviousValues(..), ProjectsSubscriptionPayload(..))
+module DB.Object exposing (AggregateAsset(..), AggregateBlogPost(..), AggregateColor(..), AggregateContact(..), AggregateLocation(..), AggregateProject(..), Asset(..), AssetConnection(..), AssetEdge(..), AssetPreviousValues(..), AssetSubscriptionPayload(..), BatchPayload(..), BlogPost(..), BlogPostConnection(..), BlogPostEdge(..), BlogPostPreviousValues(..), BlogPostSubscriptionPayload(..), Color(..), ColorConnection(..), ColorEdge(..), ColorPreviousValues(..), ColorSubscriptionPayload(..), Contact(..), ContactConnection(..), ContactEdge(..), ContactPreviousValues(..), ContactSubscriptionPayload(..), Location(..), LocationConnection(..), LocationEdge(..), LocationPreviousValues(..), LocationSubscriptionPayload(..), PageInfo(..), Project(..), ProjectConnection(..), ProjectEdge(..), ProjectPreviousValues(..), ProjectSubscriptionPayload(..))
 
 
 type AggregateAsset
@@ -25,8 +25,8 @@ type AggregateLocation
     = AggregateLocation
 
 
-type AggregateProjects
-    = AggregateProjects
+type AggregateProject
+    = AggregateProject
 
 
 type Asset
@@ -137,21 +137,21 @@ type PageInfo
     = PageInfo
 
 
-type Projects
-    = Projects
+type Project
+    = Project
 
 
-type ProjectsConnection
-    = ProjectsConnection
+type ProjectConnection
+    = ProjectConnection
 
 
-type ProjectsEdge
-    = ProjectsEdge
+type ProjectEdge
+    = ProjectEdge
 
 
-type ProjectsPreviousValues
-    = ProjectsPreviousValues
+type ProjectPreviousValues
+    = ProjectPreviousValues
 
 
-type ProjectsSubscriptionPayload
-    = ProjectsSubscriptionPayload
+type ProjectSubscriptionPayload
+    = ProjectSubscriptionPayload

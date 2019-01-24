@@ -2,12 +2,12 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module DB.Enum.ProjectsOrderByInput exposing (ProjectsOrderByInput(..), decoder, list, toString)
+module DB.Enum.ProjectOrderByInput exposing (ProjectOrderByInput(..), decoder, list, toString)
 
 import Json.Decode as Decode exposing (Decoder)
 
 
-type ProjectsOrderByInput
+type ProjectOrderByInput
     = Status_ASC
     | Status_DESC
     | Id_ASC
@@ -26,12 +26,12 @@ type ProjectsOrderByInput
     | Link_DESC
 
 
-list : List ProjectsOrderByInput
+list : List ProjectOrderByInput
 list =
     [ Status_ASC, Status_DESC, Id_ASC, Id_DESC, CreatedAt_ASC, CreatedAt_DESC, UpdatedAt_ASC, UpdatedAt_DESC, Name_ASC, Name_DESC, Description_ASC, Description_DESC, MyWork_ASC, MyWork_DESC, Link_ASC, Link_DESC ]
 
 
-decoder : Decoder ProjectsOrderByInput
+decoder : Decoder ProjectOrderByInput
 decoder =
     Decode.string
         |> Decode.andThen
@@ -86,13 +86,13 @@ decoder =
                         Decode.succeed Link_DESC
 
                     _ ->
-                        Decode.fail ("Invalid ProjectsOrderByInput type, " ++ string ++ " try re-running the @dillonkearns/elm-graphql CLI ")
+                        Decode.fail ("Invalid ProjectOrderByInput type, " ++ string ++ " try re-running the @dillonkearns/elm-graphql CLI ")
             )
 
 
 {-| Convert from the union type representating the Enum to a string that the GraphQL server will recognize.
 -}
-toString : ProjectsOrderByInput -> String
+toString : ProjectOrderByInput -> String
 toString enum =
     case enum of
         Status_ASC ->

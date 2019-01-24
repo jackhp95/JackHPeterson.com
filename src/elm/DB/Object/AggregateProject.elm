@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module DB.Object.AggregateProjects exposing (count)
+module DB.Object.AggregateProject exposing (count)
 
 import DB.Object
 import Graphql.Internal.Builder.Object as Object
@@ -11,6 +11,6 @@ import Graphql.SelectionSet exposing (SelectionSet)
 import Json.Decode as Decode
 
 
-count : SelectionSet Int DB.Object.AggregateProjects
+count : SelectionSet Int DB.Object.AggregateProject
 count =
     Object.selectionForField "Int" "count" [] Decode.int

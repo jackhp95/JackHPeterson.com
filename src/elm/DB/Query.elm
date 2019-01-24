@@ -2,14 +2,14 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module DB.Query exposing (AssetRequiredArguments, AssetsConnectionOptionalArguments, AssetsOptionalArguments, BlogPostRequiredArguments, BlogPostsConnectionOptionalArguments, BlogPostsOptionalArguments, ColorRequiredArguments, ColorsConnectionOptionalArguments, ColorsOptionalArguments, ContactRequiredArguments, ContactsConnectionOptionalArguments, ContactsOptionalArguments, LocationRequiredArguments, LocationsConnectionOptionalArguments, LocationsOptionalArguments, NodeRequiredArguments, ProjectsRequiredArguments, ProjectsesConnectionOptionalArguments, ProjectsesOptionalArguments, asset, assets, assetsConnection, blogPost, blogPosts, blogPostsConnection, color, colors, colorsConnection, contact, contacts, contactsConnection, location, locations, locationsConnection, node, projects, projectses, projectsesConnection)
+module DB.Query exposing (AssetRequiredArguments, AssetsConnectionOptionalArguments, AssetsOptionalArguments, BlogPostRequiredArguments, BlogPostsConnectionOptionalArguments, BlogPostsOptionalArguments, ColorRequiredArguments, ColorsConnectionOptionalArguments, ColorsOptionalArguments, ContactRequiredArguments, ContactsConnectionOptionalArguments, ContactsOptionalArguments, LocationRequiredArguments, LocationsConnectionOptionalArguments, LocationsOptionalArguments, NodeRequiredArguments, ProjectRequiredArguments, ProjectsConnectionOptionalArguments, ProjectsOptionalArguments, asset, assets, assetsConnection, blogPost, blogPosts, blogPostsConnection, color, colors, colorsConnection, contact, contacts, contactsConnection, location, locations, locationsConnection, node, project, projects, projectsConnection)
 
 import DB.Enum.AssetOrderByInput
 import DB.Enum.BlogPostOrderByInput
 import DB.Enum.ColorOrderByInput
 import DB.Enum.ContactOrderByInput
 import DB.Enum.LocationOrderByInput
-import DB.Enum.ProjectsOrderByInput
+import DB.Enum.ProjectOrderByInput
 import DB.InputObject
 import DB.Interface
 import DB.Object
@@ -140,35 +140,6 @@ blogPosts fillInOptionals object_ =
     Object.selectionForCompositeField "blogPosts" optionalArgs object_ (identity >> Decode.nullable >> Decode.list)
 
 
-type alias ProjectsesOptionalArguments =
-    { where_ : OptionalArgument DB.InputObject.ProjectsWhereInput
-    , orderBy : OptionalArgument DB.Enum.ProjectsOrderByInput.ProjectsOrderByInput
-    , skip : OptionalArgument Int
-    , after : OptionalArgument String
-    , before : OptionalArgument String
-    , first : OptionalArgument Int
-    , last : OptionalArgument Int
-    }
-
-
-{-|
-
-  - where\_ -
-
--}
-projectses : (ProjectsesOptionalArguments -> ProjectsesOptionalArguments) -> SelectionSet decodesTo DB.Object.Projects -> SelectionSet (List (Maybe decodesTo)) RootQuery
-projectses fillInOptionals object_ =
-    let
-        filledInOptionals =
-            fillInOptionals { where_ = Absent, orderBy = Absent, skip = Absent, after = Absent, before = Absent, first = Absent, last = Absent }
-
-        optionalArgs =
-            [ Argument.optional "where" filledInOptionals.where_ DB.InputObject.encodeProjectsWhereInput, Argument.optional "orderBy" filledInOptionals.orderBy (Encode.enum DB.Enum.ProjectsOrderByInput.toString), Argument.optional "skip" filledInOptionals.skip Encode.int, Argument.optional "after" filledInOptionals.after Encode.string, Argument.optional "before" filledInOptionals.before Encode.string, Argument.optional "first" filledInOptionals.first Encode.int, Argument.optional "last" filledInOptionals.last Encode.int ]
-                |> List.filterMap identity
-    in
-    Object.selectionForCompositeField "projectses" optionalArgs object_ (identity >> Decode.nullable >> Decode.list)
-
-
 type alias ContactsOptionalArguments =
     { where_ : OptionalArgument DB.InputObject.ContactWhereInput
     , orderBy : OptionalArgument DB.Enum.ContactOrderByInput.ContactOrderByInput
@@ -196,6 +167,35 @@ contacts fillInOptionals object_ =
                 |> List.filterMap identity
     in
     Object.selectionForCompositeField "contacts" optionalArgs object_ (identity >> Decode.nullable >> Decode.list)
+
+
+type alias ProjectsOptionalArguments =
+    { where_ : OptionalArgument DB.InputObject.ProjectWhereInput
+    , orderBy : OptionalArgument DB.Enum.ProjectOrderByInput.ProjectOrderByInput
+    , skip : OptionalArgument Int
+    , after : OptionalArgument String
+    , before : OptionalArgument String
+    , first : OptionalArgument Int
+    , last : OptionalArgument Int
+    }
+
+
+{-|
+
+  - where\_ -
+
+-}
+projects : (ProjectsOptionalArguments -> ProjectsOptionalArguments) -> SelectionSet decodesTo DB.Object.Project -> SelectionSet (List (Maybe decodesTo)) RootQuery
+projects fillInOptionals object_ =
+    let
+        filledInOptionals =
+            fillInOptionals { where_ = Absent, orderBy = Absent, skip = Absent, after = Absent, before = Absent, first = Absent, last = Absent }
+
+        optionalArgs =
+            [ Argument.optional "where" filledInOptionals.where_ DB.InputObject.encodeProjectWhereInput, Argument.optional "orderBy" filledInOptionals.orderBy (Encode.enum DB.Enum.ProjectOrderByInput.toString), Argument.optional "skip" filledInOptionals.skip Encode.int, Argument.optional "after" filledInOptionals.after Encode.string, Argument.optional "before" filledInOptionals.before Encode.string, Argument.optional "first" filledInOptionals.first Encode.int, Argument.optional "last" filledInOptionals.last Encode.int ]
+                |> List.filterMap identity
+    in
+    Object.selectionForCompositeField "projects" optionalArgs object_ (identity >> Decode.nullable >> Decode.list)
 
 
 type alias AssetRequiredArguments =
@@ -234,15 +234,6 @@ blogPost requiredArgs object_ =
     Object.selectionForCompositeField "blogPost" [ Argument.required "where" requiredArgs.where_ DB.InputObject.encodeBlogPostWhereUniqueInput ] object_ (identity >> Decode.nullable)
 
 
-type alias ProjectsRequiredArguments =
-    { where_ : DB.InputObject.ProjectsWhereUniqueInput }
-
-
-projects : ProjectsRequiredArguments -> SelectionSet decodesTo DB.Object.Projects -> SelectionSet (Maybe decodesTo) RootQuery
-projects requiredArgs object_ =
-    Object.selectionForCompositeField "projects" [ Argument.required "where" requiredArgs.where_ DB.InputObject.encodeProjectsWhereUniqueInput ] object_ (identity >> Decode.nullable)
-
-
 type alias ContactRequiredArguments =
     { where_ : DB.InputObject.ContactWhereUniqueInput }
 
@@ -250,6 +241,15 @@ type alias ContactRequiredArguments =
 contact : ContactRequiredArguments -> SelectionSet decodesTo DB.Object.Contact -> SelectionSet (Maybe decodesTo) RootQuery
 contact requiredArgs object_ =
     Object.selectionForCompositeField "contact" [ Argument.required "where" requiredArgs.where_ DB.InputObject.encodeContactWhereUniqueInput ] object_ (identity >> Decode.nullable)
+
+
+type alias ProjectRequiredArguments =
+    { where_ : DB.InputObject.ProjectWhereUniqueInput }
+
+
+project : ProjectRequiredArguments -> SelectionSet decodesTo DB.Object.Project -> SelectionSet (Maybe decodesTo) RootQuery
+project requiredArgs object_ =
+    Object.selectionForCompositeField "project" [ Argument.required "where" requiredArgs.where_ DB.InputObject.encodeProjectWhereUniqueInput ] object_ (identity >> Decode.nullable)
 
 
 type alias AssetsConnectionOptionalArguments =
@@ -368,35 +368,6 @@ blogPostsConnection fillInOptionals object_ =
     Object.selectionForCompositeField "blogPostsConnection" optionalArgs object_ identity
 
 
-type alias ProjectsesConnectionOptionalArguments =
-    { where_ : OptionalArgument DB.InputObject.ProjectsWhereInput
-    , orderBy : OptionalArgument DB.Enum.ProjectsOrderByInput.ProjectsOrderByInput
-    , skip : OptionalArgument Int
-    , after : OptionalArgument String
-    , before : OptionalArgument String
-    , first : OptionalArgument Int
-    , last : OptionalArgument Int
-    }
-
-
-{-|
-
-  - where\_ -
-
--}
-projectsesConnection : (ProjectsesConnectionOptionalArguments -> ProjectsesConnectionOptionalArguments) -> SelectionSet decodesTo DB.Object.ProjectsConnection -> SelectionSet decodesTo RootQuery
-projectsesConnection fillInOptionals object_ =
-    let
-        filledInOptionals =
-            fillInOptionals { where_ = Absent, orderBy = Absent, skip = Absent, after = Absent, before = Absent, first = Absent, last = Absent }
-
-        optionalArgs =
-            [ Argument.optional "where" filledInOptionals.where_ DB.InputObject.encodeProjectsWhereInput, Argument.optional "orderBy" filledInOptionals.orderBy (Encode.enum DB.Enum.ProjectsOrderByInput.toString), Argument.optional "skip" filledInOptionals.skip Encode.int, Argument.optional "after" filledInOptionals.after Encode.string, Argument.optional "before" filledInOptionals.before Encode.string, Argument.optional "first" filledInOptionals.first Encode.int, Argument.optional "last" filledInOptionals.last Encode.int ]
-                |> List.filterMap identity
-    in
-    Object.selectionForCompositeField "projectsesConnection" optionalArgs object_ identity
-
-
 type alias ContactsConnectionOptionalArguments =
     { where_ : OptionalArgument DB.InputObject.ContactWhereInput
     , orderBy : OptionalArgument DB.Enum.ContactOrderByInput.ContactOrderByInput
@@ -424,6 +395,35 @@ contactsConnection fillInOptionals object_ =
                 |> List.filterMap identity
     in
     Object.selectionForCompositeField "contactsConnection" optionalArgs object_ identity
+
+
+type alias ProjectsConnectionOptionalArguments =
+    { where_ : OptionalArgument DB.InputObject.ProjectWhereInput
+    , orderBy : OptionalArgument DB.Enum.ProjectOrderByInput.ProjectOrderByInput
+    , skip : OptionalArgument Int
+    , after : OptionalArgument String
+    , before : OptionalArgument String
+    , first : OptionalArgument Int
+    , last : OptionalArgument Int
+    }
+
+
+{-|
+
+  - where\_ -
+
+-}
+projectsConnection : (ProjectsConnectionOptionalArguments -> ProjectsConnectionOptionalArguments) -> SelectionSet decodesTo DB.Object.ProjectConnection -> SelectionSet decodesTo RootQuery
+projectsConnection fillInOptionals object_ =
+    let
+        filledInOptionals =
+            fillInOptionals { where_ = Absent, orderBy = Absent, skip = Absent, after = Absent, before = Absent, first = Absent, last = Absent }
+
+        optionalArgs =
+            [ Argument.optional "where" filledInOptionals.where_ DB.InputObject.encodeProjectWhereInput, Argument.optional "orderBy" filledInOptionals.orderBy (Encode.enum DB.Enum.ProjectOrderByInput.toString), Argument.optional "skip" filledInOptionals.skip Encode.int, Argument.optional "after" filledInOptionals.after Encode.string, Argument.optional "before" filledInOptionals.before Encode.string, Argument.optional "first" filledInOptionals.first Encode.int, Argument.optional "last" filledInOptionals.last Encode.int ]
+                |> List.filterMap identity
+    in
+    Object.selectionForCompositeField "projectsConnection" optionalArgs object_ identity
 
 
 type alias NodeRequiredArguments =

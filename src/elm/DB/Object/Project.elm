@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module DB.Object.Projects exposing (ImagesOptionalArguments, createdAt, description, id, images, link, myWork, name, picture, status, tags, updatedAt)
+module DB.Object.Project exposing (ImagesOptionalArguments, createdAt, description, id, images, link, myWork, name, picture, status, tags, updatedAt)
 
 import DB.Enum.AssetOrderByInput
 import DB.Enum.Status
@@ -18,42 +18,42 @@ import Graphql.SelectionSet exposing (SelectionSet)
 import Json.Decode as Decode
 
 
-status : SelectionSet DB.Enum.Status.Status DB.Object.Projects
+status : SelectionSet DB.Enum.Status.Status DB.Object.Project
 status =
     Object.selectionForField "Enum.Status.Status" "status" [] DB.Enum.Status.decoder
 
 
-id : SelectionSet DB.ScalarDecoders.Id DB.Object.Projects
+id : SelectionSet DB.ScalarDecoders.Id DB.Object.Project
 id =
     Object.selectionForField "ScalarDecoders.Id" "id" [] (DB.ScalarDecoders.decoders |> DB.Scalar.unwrapDecoders |> .decoderId)
 
 
-createdAt : SelectionSet DB.ScalarDecoders.DateTime DB.Object.Projects
+createdAt : SelectionSet DB.ScalarDecoders.DateTime DB.Object.Project
 createdAt =
     Object.selectionForField "ScalarDecoders.DateTime" "createdAt" [] (DB.ScalarDecoders.decoders |> DB.Scalar.unwrapDecoders |> .decoderDateTime)
 
 
-updatedAt : SelectionSet DB.ScalarDecoders.DateTime DB.Object.Projects
+updatedAt : SelectionSet DB.ScalarDecoders.DateTime DB.Object.Project
 updatedAt =
     Object.selectionForField "ScalarDecoders.DateTime" "updatedAt" [] (DB.ScalarDecoders.decoders |> DB.Scalar.unwrapDecoders |> .decoderDateTime)
 
 
-name : SelectionSet String DB.Object.Projects
+name : SelectionSet String DB.Object.Project
 name =
     Object.selectionForField "String" "name" [] Decode.string
 
 
-description : SelectionSet (Maybe String) DB.Object.Projects
+description : SelectionSet (Maybe String) DB.Object.Project
 description =
     Object.selectionForField "(Maybe String)" "description" [] (Decode.string |> Decode.nullable)
 
 
-myWork : SelectionSet (Maybe String) DB.Object.Projects
+myWork : SelectionSet (Maybe String) DB.Object.Project
 myWork =
     Object.selectionForField "(Maybe String)" "myWork" [] (Decode.string |> Decode.nullable)
 
 
-tags : SelectionSet (List String) DB.Object.Projects
+tags : SelectionSet (List String) DB.Object.Project
 tags =
     Object.selectionForField "(List String)" "tags" [] (Decode.string |> Decode.list)
 
@@ -74,7 +74,7 @@ type alias ImagesOptionalArguments =
   - where\_ -
 
 -}
-images : (ImagesOptionalArguments -> ImagesOptionalArguments) -> SelectionSet decodesTo DB.Object.Asset -> SelectionSet (Maybe (List decodesTo)) DB.Object.Projects
+images : (ImagesOptionalArguments -> ImagesOptionalArguments) -> SelectionSet decodesTo DB.Object.Asset -> SelectionSet (Maybe (List decodesTo)) DB.Object.Project
 images fillInOptionals object_ =
     let
         filledInOptionals =
@@ -87,11 +87,11 @@ images fillInOptionals object_ =
     Object.selectionForCompositeField "images" optionalArgs object_ (identity >> Decode.list >> Decode.nullable)
 
 
-link : SelectionSet (Maybe String) DB.Object.Projects
+link : SelectionSet (Maybe String) DB.Object.Project
 link =
     Object.selectionForField "(Maybe String)" "link" [] (Decode.string |> Decode.nullable)
 
 
-picture : SelectionSet decodesTo DB.Object.Asset -> SelectionSet (Maybe decodesTo) DB.Object.Projects
+picture : SelectionSet decodesTo DB.Object.Asset -> SelectionSet (Maybe decodesTo) DB.Object.Project
 picture object_ =
     Object.selectionForCompositeField "picture" [] object_ (identity >> Decode.nullable)

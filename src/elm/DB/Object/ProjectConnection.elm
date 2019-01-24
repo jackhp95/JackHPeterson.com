@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module DB.Object.ProjectsConnection exposing (aggregate, edges, pageInfo)
+module DB.Object.ProjectConnection exposing (aggregate, edges, pageInfo)
 
 import DB.Object
 import Graphql.Internal.Builder.Object as Object
@@ -13,18 +13,18 @@ import Json.Decode as Decode
 
 {-| Information to aid in pagination.
 -}
-pageInfo : SelectionSet decodesTo DB.Object.PageInfo -> SelectionSet decodesTo DB.Object.ProjectsConnection
+pageInfo : SelectionSet decodesTo DB.Object.PageInfo -> SelectionSet decodesTo DB.Object.ProjectConnection
 pageInfo object_ =
     Object.selectionForCompositeField "pageInfo" [] object_ identity
 
 
 {-| A list of edges.
 -}
-edges : SelectionSet decodesTo DB.Object.ProjectsEdge -> SelectionSet (List (Maybe decodesTo)) DB.Object.ProjectsConnection
+edges : SelectionSet decodesTo DB.Object.ProjectEdge -> SelectionSet (List (Maybe decodesTo)) DB.Object.ProjectConnection
 edges object_ =
     Object.selectionForCompositeField "edges" [] object_ (identity >> Decode.nullable >> Decode.list)
 
 
-aggregate : SelectionSet decodesTo DB.Object.AggregateProjects -> SelectionSet decodesTo DB.Object.ProjectsConnection
+aggregate : SelectionSet decodesTo DB.Object.AggregateProject -> SelectionSet decodesTo DB.Object.ProjectConnection
 aggregate object_ =
     Object.selectionForCompositeField "aggregate" [] object_ identity

@@ -2,10 +2,10 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module DB.Object.Asset exposing (ImagesProjectsOptionalArguments, PictureBlogPostOptionalArguments, PictureProjectsOptionalArguments, UrlOptionalArguments, createdAt, fileName, handle, height, id, imagesProjects, mimeType, pictureBlogPost, pictureProjects, size, status, updatedAt, url, width)
+module DB.Object.Asset exposing (ImagesProjectOptionalArguments, PictureBlogPostOptionalArguments, PictureProjectOptionalArguments, UrlOptionalArguments, createdAt, fileName, handle, height, id, imagesProject, mimeType, pictureBlogPost, pictureProject, size, status, updatedAt, url, width)
 
 import DB.Enum.BlogPostOrderByInput
-import DB.Enum.ProjectsOrderByInput
+import DB.Enum.ProjectOrderByInput
 import DB.Enum.Status
 import DB.InputObject
 import DB.Object
@@ -98,9 +98,9 @@ pictureBlogPost fillInOptionals object_ =
     Object.selectionForCompositeField "pictureBlogPost" optionalArgs object_ (identity >> Decode.list >> Decode.nullable)
 
 
-type alias ImagesProjectsOptionalArguments =
-    { where_ : OptionalArgument DB.InputObject.ProjectsWhereInput
-    , orderBy : OptionalArgument DB.Enum.ProjectsOrderByInput.ProjectsOrderByInput
+type alias ImagesProjectOptionalArguments =
+    { where_ : OptionalArgument DB.InputObject.ProjectWhereInput
+    , orderBy : OptionalArgument DB.Enum.ProjectOrderByInput.ProjectOrderByInput
     , skip : OptionalArgument Int
     , after : OptionalArgument String
     , before : OptionalArgument String
@@ -114,22 +114,22 @@ type alias ImagesProjectsOptionalArguments =
   - where\_ -
 
 -}
-imagesProjects : (ImagesProjectsOptionalArguments -> ImagesProjectsOptionalArguments) -> SelectionSet decodesTo DB.Object.Projects -> SelectionSet (Maybe (List decodesTo)) DB.Object.Asset
-imagesProjects fillInOptionals object_ =
+imagesProject : (ImagesProjectOptionalArguments -> ImagesProjectOptionalArguments) -> SelectionSet decodesTo DB.Object.Project -> SelectionSet (Maybe (List decodesTo)) DB.Object.Asset
+imagesProject fillInOptionals object_ =
     let
         filledInOptionals =
             fillInOptionals { where_ = Absent, orderBy = Absent, skip = Absent, after = Absent, before = Absent, first = Absent, last = Absent }
 
         optionalArgs =
-            [ Argument.optional "where" filledInOptionals.where_ DB.InputObject.encodeProjectsWhereInput, Argument.optional "orderBy" filledInOptionals.orderBy (Encode.enum DB.Enum.ProjectsOrderByInput.toString), Argument.optional "skip" filledInOptionals.skip Encode.int, Argument.optional "after" filledInOptionals.after Encode.string, Argument.optional "before" filledInOptionals.before Encode.string, Argument.optional "first" filledInOptionals.first Encode.int, Argument.optional "last" filledInOptionals.last Encode.int ]
+            [ Argument.optional "where" filledInOptionals.where_ DB.InputObject.encodeProjectWhereInput, Argument.optional "orderBy" filledInOptionals.orderBy (Encode.enum DB.Enum.ProjectOrderByInput.toString), Argument.optional "skip" filledInOptionals.skip Encode.int, Argument.optional "after" filledInOptionals.after Encode.string, Argument.optional "before" filledInOptionals.before Encode.string, Argument.optional "first" filledInOptionals.first Encode.int, Argument.optional "last" filledInOptionals.last Encode.int ]
                 |> List.filterMap identity
     in
-    Object.selectionForCompositeField "imagesProjects" optionalArgs object_ (identity >> Decode.list >> Decode.nullable)
+    Object.selectionForCompositeField "imagesProject" optionalArgs object_ (identity >> Decode.list >> Decode.nullable)
 
 
-type alias PictureProjectsOptionalArguments =
-    { where_ : OptionalArgument DB.InputObject.ProjectsWhereInput
-    , orderBy : OptionalArgument DB.Enum.ProjectsOrderByInput.ProjectsOrderByInput
+type alias PictureProjectOptionalArguments =
+    { where_ : OptionalArgument DB.InputObject.ProjectWhereInput
+    , orderBy : OptionalArgument DB.Enum.ProjectOrderByInput.ProjectOrderByInput
     , skip : OptionalArgument Int
     , after : OptionalArgument String
     , before : OptionalArgument String
@@ -143,17 +143,17 @@ type alias PictureProjectsOptionalArguments =
   - where\_ -
 
 -}
-pictureProjects : (PictureProjectsOptionalArguments -> PictureProjectsOptionalArguments) -> SelectionSet decodesTo DB.Object.Projects -> SelectionSet (Maybe (List decodesTo)) DB.Object.Asset
-pictureProjects fillInOptionals object_ =
+pictureProject : (PictureProjectOptionalArguments -> PictureProjectOptionalArguments) -> SelectionSet decodesTo DB.Object.Project -> SelectionSet (Maybe (List decodesTo)) DB.Object.Asset
+pictureProject fillInOptionals object_ =
     let
         filledInOptionals =
             fillInOptionals { where_ = Absent, orderBy = Absent, skip = Absent, after = Absent, before = Absent, first = Absent, last = Absent }
 
         optionalArgs =
-            [ Argument.optional "where" filledInOptionals.where_ DB.InputObject.encodeProjectsWhereInput, Argument.optional "orderBy" filledInOptionals.orderBy (Encode.enum DB.Enum.ProjectsOrderByInput.toString), Argument.optional "skip" filledInOptionals.skip Encode.int, Argument.optional "after" filledInOptionals.after Encode.string, Argument.optional "before" filledInOptionals.before Encode.string, Argument.optional "first" filledInOptionals.first Encode.int, Argument.optional "last" filledInOptionals.last Encode.int ]
+            [ Argument.optional "where" filledInOptionals.where_ DB.InputObject.encodeProjectWhereInput, Argument.optional "orderBy" filledInOptionals.orderBy (Encode.enum DB.Enum.ProjectOrderByInput.toString), Argument.optional "skip" filledInOptionals.skip Encode.int, Argument.optional "after" filledInOptionals.after Encode.string, Argument.optional "before" filledInOptionals.before Encode.string, Argument.optional "first" filledInOptionals.first Encode.int, Argument.optional "last" filledInOptionals.last Encode.int ]
                 |> List.filterMap identity
     in
-    Object.selectionForCompositeField "pictureProjects" optionalArgs object_ (identity >> Decode.list >> Decode.nullable)
+    Object.selectionForCompositeField "pictureProject" optionalArgs object_ (identity >> Decode.list >> Decode.nullable)
 
 
 type alias UrlOptionalArguments =

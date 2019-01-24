@@ -16,7 +16,7 @@ import Graphql.SelectionSet exposing (FragmentSelectionSet(..), SelectionSet(..)
 type alias Fragments decodesTo =
     { onAsset : SelectionSet decodesTo DB.Object.Asset
     , onBlogPost : SelectionSet decodesTo DB.Object.BlogPost
-    , onProjects : SelectionSet decodesTo DB.Object.Projects
+    , onProject : SelectionSet decodesTo DB.Object.Project
     , onColor : SelectionSet decodesTo DB.Object.Color
     , onLocation : SelectionSet decodesTo DB.Object.Location
     , onContact : SelectionSet decodesTo DB.Object.Contact
@@ -32,7 +32,7 @@ fragments selections =
     Object.exhuastiveFragmentSelection
         [ Object.buildFragment "Asset" selections.onAsset
         , Object.buildFragment "BlogPost" selections.onBlogPost
-        , Object.buildFragment "Projects" selections.onProjects
+        , Object.buildFragment "Project" selections.onProject
         , Object.buildFragment "Color" selections.onColor
         , Object.buildFragment "Location" selections.onLocation
         , Object.buildFragment "Contact" selections.onContact
@@ -46,7 +46,7 @@ maybeFragments : Fragments (Maybe decodesTo)
 maybeFragments =
     { onAsset = Graphql.SelectionSet.empty |> Graphql.SelectionSet.map (\_ -> Nothing)
     , onBlogPost = Graphql.SelectionSet.empty |> Graphql.SelectionSet.map (\_ -> Nothing)
-    , onProjects = Graphql.SelectionSet.empty |> Graphql.SelectionSet.map (\_ -> Nothing)
+    , onProject = Graphql.SelectionSet.empty |> Graphql.SelectionSet.map (\_ -> Nothing)
     , onColor = Graphql.SelectionSet.empty |> Graphql.SelectionSet.map (\_ -> Nothing)
     , onLocation = Graphql.SelectionSet.empty |> Graphql.SelectionSet.map (\_ -> Nothing)
     , onContact = Graphql.SelectionSet.empty |> Graphql.SelectionSet.map (\_ -> Nothing)

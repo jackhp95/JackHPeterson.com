@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module DB.Object.ProjectsSubscriptionPayload exposing (mutation, node, previousValues, updatedFields)
+module DB.Object.ProjectSubscriptionPayload exposing (mutation, node, previousValues, updatedFields)
 
 import DB.Enum.MutationType
 import DB.Object
@@ -12,21 +12,21 @@ import Graphql.SelectionSet exposing (SelectionSet)
 import Json.Decode as Decode
 
 
-mutation : SelectionSet DB.Enum.MutationType.MutationType DB.Object.ProjectsSubscriptionPayload
+mutation : SelectionSet DB.Enum.MutationType.MutationType DB.Object.ProjectSubscriptionPayload
 mutation =
     Object.selectionForField "Enum.MutationType.MutationType" "mutation" [] DB.Enum.MutationType.decoder
 
 
-node : SelectionSet decodesTo DB.Object.Projects -> SelectionSet (Maybe decodesTo) DB.Object.ProjectsSubscriptionPayload
+node : SelectionSet decodesTo DB.Object.Project -> SelectionSet (Maybe decodesTo) DB.Object.ProjectSubscriptionPayload
 node object_ =
     Object.selectionForCompositeField "node" [] object_ (identity >> Decode.nullable)
 
 
-updatedFields : SelectionSet (Maybe (List String)) DB.Object.ProjectsSubscriptionPayload
+updatedFields : SelectionSet (Maybe (List String)) DB.Object.ProjectSubscriptionPayload
 updatedFields =
     Object.selectionForField "(Maybe (List String))" "updatedFields" [] (Decode.string |> Decode.list |> Decode.nullable)
 
 
-previousValues : SelectionSet decodesTo DB.Object.ProjectsPreviousValues -> SelectionSet (Maybe decodesTo) DB.Object.ProjectsSubscriptionPayload
+previousValues : SelectionSet decodesTo DB.Object.ProjectPreviousValues -> SelectionSet (Maybe decodesTo) DB.Object.ProjectSubscriptionPayload
 previousValues object_ =
     Object.selectionForCompositeField "previousValues" [] object_ (identity >> Decode.nullable)

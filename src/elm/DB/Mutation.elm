@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module DB.Mutation exposing (CreateAssetRequiredArguments, CreateBlogPostRequiredArguments, CreateContactRequiredArguments, CreateProjectsRequiredArguments, DeleteAssetRequiredArguments, DeleteBlogPostRequiredArguments, DeleteColorRequiredArguments, DeleteContactRequiredArguments, DeleteLocationRequiredArguments, DeleteManyAssetsOptionalArguments, DeleteManyBlogPostsOptionalArguments, DeleteManyColorsOptionalArguments, DeleteManyContactsOptionalArguments, DeleteManyLocationsOptionalArguments, DeleteManyProjectsesOptionalArguments, DeleteProjectsRequiredArguments, UpdateAssetRequiredArguments, UpdateBlogPostRequiredArguments, UpdateContactRequiredArguments, UpdateManyAssetsOptionalArguments, UpdateManyAssetsRequiredArguments, UpdateManyBlogPostsOptionalArguments, UpdateManyBlogPostsRequiredArguments, UpdateManyContactsOptionalArguments, UpdateManyContactsRequiredArguments, UpdateManyProjectsesOptionalArguments, UpdateManyProjectsesRequiredArguments, UpdateProjectsRequiredArguments, UpsertAssetRequiredArguments, UpsertBlogPostRequiredArguments, UpsertContactRequiredArguments, UpsertProjectsRequiredArguments, createAsset, createBlogPost, createColor, createContact, createLocation, createProjects, deleteAsset, deleteBlogPost, deleteColor, deleteContact, deleteLocation, deleteManyAssets, deleteManyBlogPosts, deleteManyColors, deleteManyContacts, deleteManyLocations, deleteManyProjectses, deleteProjects, updateAsset, updateBlogPost, updateContact, updateManyAssets, updateManyBlogPosts, updateManyContacts, updateManyProjectses, updateProjects, upsertAsset, upsertBlogPost, upsertContact, upsertProjects)
+module DB.Mutation exposing (CreateAssetRequiredArguments, CreateBlogPostRequiredArguments, CreateContactRequiredArguments, CreateProjectRequiredArguments, DeleteAssetRequiredArguments, DeleteBlogPostRequiredArguments, DeleteColorRequiredArguments, DeleteContactRequiredArguments, DeleteLocationRequiredArguments, DeleteManyAssetsOptionalArguments, DeleteManyBlogPostsOptionalArguments, DeleteManyColorsOptionalArguments, DeleteManyContactsOptionalArguments, DeleteManyLocationsOptionalArguments, DeleteManyProjectsOptionalArguments, DeleteProjectRequiredArguments, UpdateAssetRequiredArguments, UpdateBlogPostRequiredArguments, UpdateContactRequiredArguments, UpdateManyAssetsOptionalArguments, UpdateManyAssetsRequiredArguments, UpdateManyBlogPostsOptionalArguments, UpdateManyBlogPostsRequiredArguments, UpdateManyContactsOptionalArguments, UpdateManyContactsRequiredArguments, UpdateManyProjectsOptionalArguments, UpdateManyProjectsRequiredArguments, UpdateProjectRequiredArguments, UpsertAssetRequiredArguments, UpsertBlogPostRequiredArguments, UpsertContactRequiredArguments, UpsertProjectRequiredArguments, createAsset, createBlogPost, createColor, createContact, createLocation, createProject, deleteAsset, deleteBlogPost, deleteColor, deleteContact, deleteLocation, deleteManyAssets, deleteManyBlogPosts, deleteManyColors, deleteManyContacts, deleteManyLocations, deleteManyProjects, deleteProject, updateAsset, updateBlogPost, updateContact, updateManyAssets, updateManyBlogPosts, updateManyContacts, updateManyProjects, updateProject, upsertAsset, upsertBlogPost, upsertContact, upsertProject)
 
 import DB.InputObject
 import DB.Object
@@ -42,15 +42,6 @@ createBlogPost requiredArgs object_ =
     Object.selectionForCompositeField "createBlogPost" [ Argument.required "data" requiredArgs.data DB.InputObject.encodeBlogPostCreateInput ] object_ identity
 
 
-type alias CreateProjectsRequiredArguments =
-    { data : DB.InputObject.ProjectsCreateInput }
-
-
-createProjects : CreateProjectsRequiredArguments -> SelectionSet decodesTo DB.Object.Projects -> SelectionSet decodesTo RootMutation
-createProjects requiredArgs object_ =
-    Object.selectionForCompositeField "createProjects" [ Argument.required "data" requiredArgs.data DB.InputObject.encodeProjectsCreateInput ] object_ identity
-
-
 type alias CreateContactRequiredArguments =
     { data : DB.InputObject.ContactCreateInput }
 
@@ -58,6 +49,15 @@ type alias CreateContactRequiredArguments =
 createContact : CreateContactRequiredArguments -> SelectionSet decodesTo DB.Object.Contact -> SelectionSet decodesTo RootMutation
 createContact requiredArgs object_ =
     Object.selectionForCompositeField "createContact" [ Argument.required "data" requiredArgs.data DB.InputObject.encodeContactCreateInput ] object_ identity
+
+
+type alias CreateProjectRequiredArguments =
+    { data : DB.InputObject.ProjectCreateInput }
+
+
+createProject : CreateProjectRequiredArguments -> SelectionSet decodesTo DB.Object.Project -> SelectionSet decodesTo RootMutation
+createProject requiredArgs object_ =
+    Object.selectionForCompositeField "createProject" [ Argument.required "data" requiredArgs.data DB.InputObject.encodeProjectCreateInput ] object_ identity
 
 
 type alias UpdateAssetRequiredArguments =
@@ -82,17 +82,6 @@ updateBlogPost requiredArgs object_ =
     Object.selectionForCompositeField "updateBlogPost" [ Argument.required "data" requiredArgs.data DB.InputObject.encodeBlogPostUpdateInput, Argument.required "where" requiredArgs.where_ DB.InputObject.encodeBlogPostWhereUniqueInput ] object_ (identity >> Decode.nullable)
 
 
-type alias UpdateProjectsRequiredArguments =
-    { data : DB.InputObject.ProjectsUpdateInput
-    , where_ : DB.InputObject.ProjectsWhereUniqueInput
-    }
-
-
-updateProjects : UpdateProjectsRequiredArguments -> SelectionSet decodesTo DB.Object.Projects -> SelectionSet (Maybe decodesTo) RootMutation
-updateProjects requiredArgs object_ =
-    Object.selectionForCompositeField "updateProjects" [ Argument.required "data" requiredArgs.data DB.InputObject.encodeProjectsUpdateInput, Argument.required "where" requiredArgs.where_ DB.InputObject.encodeProjectsWhereUniqueInput ] object_ (identity >> Decode.nullable)
-
-
 type alias UpdateContactRequiredArguments =
     { data : DB.InputObject.ContactUpdateInput
     , where_ : DB.InputObject.ContactWhereUniqueInput
@@ -102,6 +91,17 @@ type alias UpdateContactRequiredArguments =
 updateContact : UpdateContactRequiredArguments -> SelectionSet decodesTo DB.Object.Contact -> SelectionSet (Maybe decodesTo) RootMutation
 updateContact requiredArgs object_ =
     Object.selectionForCompositeField "updateContact" [ Argument.required "data" requiredArgs.data DB.InputObject.encodeContactUpdateInput, Argument.required "where" requiredArgs.where_ DB.InputObject.encodeContactWhereUniqueInput ] object_ (identity >> Decode.nullable)
+
+
+type alias UpdateProjectRequiredArguments =
+    { data : DB.InputObject.ProjectUpdateInput
+    , where_ : DB.InputObject.ProjectWhereUniqueInput
+    }
+
+
+updateProject : UpdateProjectRequiredArguments -> SelectionSet decodesTo DB.Object.Project -> SelectionSet (Maybe decodesTo) RootMutation
+updateProject requiredArgs object_ =
+    Object.selectionForCompositeField "updateProject" [ Argument.required "data" requiredArgs.data DB.InputObject.encodeProjectUpdateInput, Argument.required "where" requiredArgs.where_ DB.InputObject.encodeProjectWhereUniqueInput ] object_ (identity >> Decode.nullable)
 
 
 type alias DeleteAssetRequiredArguments =
@@ -140,15 +140,6 @@ deleteBlogPost requiredArgs object_ =
     Object.selectionForCompositeField "deleteBlogPost" [ Argument.required "where" requiredArgs.where_ DB.InputObject.encodeBlogPostWhereUniqueInput ] object_ (identity >> Decode.nullable)
 
 
-type alias DeleteProjectsRequiredArguments =
-    { where_ : DB.InputObject.ProjectsWhereUniqueInput }
-
-
-deleteProjects : DeleteProjectsRequiredArguments -> SelectionSet decodesTo DB.Object.Projects -> SelectionSet (Maybe decodesTo) RootMutation
-deleteProjects requiredArgs object_ =
-    Object.selectionForCompositeField "deleteProjects" [ Argument.required "where" requiredArgs.where_ DB.InputObject.encodeProjectsWhereUniqueInput ] object_ (identity >> Decode.nullable)
-
-
 type alias DeleteContactRequiredArguments =
     { where_ : DB.InputObject.ContactWhereUniqueInput }
 
@@ -156,6 +147,15 @@ type alias DeleteContactRequiredArguments =
 deleteContact : DeleteContactRequiredArguments -> SelectionSet decodesTo DB.Object.Contact -> SelectionSet (Maybe decodesTo) RootMutation
 deleteContact requiredArgs object_ =
     Object.selectionForCompositeField "deleteContact" [ Argument.required "where" requiredArgs.where_ DB.InputObject.encodeContactWhereUniqueInput ] object_ (identity >> Decode.nullable)
+
+
+type alias DeleteProjectRequiredArguments =
+    { where_ : DB.InputObject.ProjectWhereUniqueInput }
+
+
+deleteProject : DeleteProjectRequiredArguments -> SelectionSet decodesTo DB.Object.Project -> SelectionSet (Maybe decodesTo) RootMutation
+deleteProject requiredArgs object_ =
+    Object.selectionForCompositeField "deleteProject" [ Argument.required "where" requiredArgs.where_ DB.InputObject.encodeProjectWhereUniqueInput ] object_ (identity >> Decode.nullable)
 
 
 type alias UpsertAssetRequiredArguments =
@@ -182,18 +182,6 @@ upsertBlogPost requiredArgs object_ =
     Object.selectionForCompositeField "upsertBlogPost" [ Argument.required "where" requiredArgs.where_ DB.InputObject.encodeBlogPostWhereUniqueInput, Argument.required "create" requiredArgs.create DB.InputObject.encodeBlogPostCreateInput, Argument.required "update" requiredArgs.update DB.InputObject.encodeBlogPostUpdateInput ] object_ identity
 
 
-type alias UpsertProjectsRequiredArguments =
-    { where_ : DB.InputObject.ProjectsWhereUniqueInput
-    , create : DB.InputObject.ProjectsCreateInput
-    , update : DB.InputObject.ProjectsUpdateInput
-    }
-
-
-upsertProjects : UpsertProjectsRequiredArguments -> SelectionSet decodesTo DB.Object.Projects -> SelectionSet decodesTo RootMutation
-upsertProjects requiredArgs object_ =
-    Object.selectionForCompositeField "upsertProjects" [ Argument.required "where" requiredArgs.where_ DB.InputObject.encodeProjectsWhereUniqueInput, Argument.required "create" requiredArgs.create DB.InputObject.encodeProjectsCreateInput, Argument.required "update" requiredArgs.update DB.InputObject.encodeProjectsUpdateInput ] object_ identity
-
-
 type alias UpsertContactRequiredArguments =
     { where_ : DB.InputObject.ContactWhereUniqueInput
     , create : DB.InputObject.ContactCreateInput
@@ -204,6 +192,18 @@ type alias UpsertContactRequiredArguments =
 upsertContact : UpsertContactRequiredArguments -> SelectionSet decodesTo DB.Object.Contact -> SelectionSet decodesTo RootMutation
 upsertContact requiredArgs object_ =
     Object.selectionForCompositeField "upsertContact" [ Argument.required "where" requiredArgs.where_ DB.InputObject.encodeContactWhereUniqueInput, Argument.required "create" requiredArgs.create DB.InputObject.encodeContactCreateInput, Argument.required "update" requiredArgs.update DB.InputObject.encodeContactUpdateInput ] object_ identity
+
+
+type alias UpsertProjectRequiredArguments =
+    { where_ : DB.InputObject.ProjectWhereUniqueInput
+    , create : DB.InputObject.ProjectCreateInput
+    , update : DB.InputObject.ProjectUpdateInput
+    }
+
+
+upsertProject : UpsertProjectRequiredArguments -> SelectionSet decodesTo DB.Object.Project -> SelectionSet decodesTo RootMutation
+upsertProject requiredArgs object_ =
+    Object.selectionForCompositeField "upsertProject" [ Argument.required "where" requiredArgs.where_ DB.InputObject.encodeProjectWhereUniqueInput, Argument.required "create" requiredArgs.create DB.InputObject.encodeProjectCreateInput, Argument.required "update" requiredArgs.update DB.InputObject.encodeProjectUpdateInput ] object_ identity
 
 
 type alias UpdateManyAssetsOptionalArguments =
@@ -258,32 +258,6 @@ updateManyBlogPosts fillInOptionals requiredArgs object_ =
     Object.selectionForCompositeField "updateManyBlogPosts" (optionalArgs ++ [ Argument.required "data" requiredArgs.data DB.InputObject.encodeBlogPostUpdateManyMutationInput ]) object_ identity
 
 
-type alias UpdateManyProjectsesOptionalArguments =
-    { where_ : OptionalArgument DB.InputObject.ProjectsWhereInput }
-
-
-type alias UpdateManyProjectsesRequiredArguments =
-    { data : DB.InputObject.ProjectsUpdateManyMutationInput }
-
-
-{-|
-
-  - where\_ -
-
--}
-updateManyProjectses : (UpdateManyProjectsesOptionalArguments -> UpdateManyProjectsesOptionalArguments) -> UpdateManyProjectsesRequiredArguments -> SelectionSet decodesTo DB.Object.BatchPayload -> SelectionSet decodesTo RootMutation
-updateManyProjectses fillInOptionals requiredArgs object_ =
-    let
-        filledInOptionals =
-            fillInOptionals { where_ = Absent }
-
-        optionalArgs =
-            [ Argument.optional "where" filledInOptionals.where_ DB.InputObject.encodeProjectsWhereInput ]
-                |> List.filterMap identity
-    in
-    Object.selectionForCompositeField "updateManyProjectses" (optionalArgs ++ [ Argument.required "data" requiredArgs.data DB.InputObject.encodeProjectsUpdateManyMutationInput ]) object_ identity
-
-
 type alias UpdateManyContactsOptionalArguments =
     { where_ : OptionalArgument DB.InputObject.ContactWhereInput }
 
@@ -308,6 +282,32 @@ updateManyContacts fillInOptionals requiredArgs object_ =
                 |> List.filterMap identity
     in
     Object.selectionForCompositeField "updateManyContacts" (optionalArgs ++ [ Argument.required "data" requiredArgs.data DB.InputObject.encodeContactUpdateManyMutationInput ]) object_ identity
+
+
+type alias UpdateManyProjectsOptionalArguments =
+    { where_ : OptionalArgument DB.InputObject.ProjectWhereInput }
+
+
+type alias UpdateManyProjectsRequiredArguments =
+    { data : DB.InputObject.ProjectUpdateManyMutationInput }
+
+
+{-|
+
+  - where\_ -
+
+-}
+updateManyProjects : (UpdateManyProjectsOptionalArguments -> UpdateManyProjectsOptionalArguments) -> UpdateManyProjectsRequiredArguments -> SelectionSet decodesTo DB.Object.BatchPayload -> SelectionSet decodesTo RootMutation
+updateManyProjects fillInOptionals requiredArgs object_ =
+    let
+        filledInOptionals =
+            fillInOptionals { where_ = Absent }
+
+        optionalArgs =
+            [ Argument.optional "where" filledInOptionals.where_ DB.InputObject.encodeProjectWhereInput ]
+                |> List.filterMap identity
+    in
+    Object.selectionForCompositeField "updateManyProjects" (optionalArgs ++ [ Argument.required "data" requiredArgs.data DB.InputObject.encodeProjectUpdateManyMutationInput ]) object_ identity
 
 
 type alias DeleteManyAssetsOptionalArguments =
@@ -398,28 +398,6 @@ deleteManyBlogPosts fillInOptionals object_ =
     Object.selectionForCompositeField "deleteManyBlogPosts" optionalArgs object_ identity
 
 
-type alias DeleteManyProjectsesOptionalArguments =
-    { where_ : OptionalArgument DB.InputObject.ProjectsWhereInput }
-
-
-{-|
-
-  - where\_ -
-
--}
-deleteManyProjectses : (DeleteManyProjectsesOptionalArguments -> DeleteManyProjectsesOptionalArguments) -> SelectionSet decodesTo DB.Object.BatchPayload -> SelectionSet decodesTo RootMutation
-deleteManyProjectses fillInOptionals object_ =
-    let
-        filledInOptionals =
-            fillInOptionals { where_ = Absent }
-
-        optionalArgs =
-            [ Argument.optional "where" filledInOptionals.where_ DB.InputObject.encodeProjectsWhereInput ]
-                |> List.filterMap identity
-    in
-    Object.selectionForCompositeField "deleteManyProjectses" optionalArgs object_ identity
-
-
 type alias DeleteManyContactsOptionalArguments =
     { where_ : OptionalArgument DB.InputObject.ContactWhereInput }
 
@@ -440,3 +418,25 @@ deleteManyContacts fillInOptionals object_ =
                 |> List.filterMap identity
     in
     Object.selectionForCompositeField "deleteManyContacts" optionalArgs object_ identity
+
+
+type alias DeleteManyProjectsOptionalArguments =
+    { where_ : OptionalArgument DB.InputObject.ProjectWhereInput }
+
+
+{-|
+
+  - where\_ -
+
+-}
+deleteManyProjects : (DeleteManyProjectsOptionalArguments -> DeleteManyProjectsOptionalArguments) -> SelectionSet decodesTo DB.Object.BatchPayload -> SelectionSet decodesTo RootMutation
+deleteManyProjects fillInOptionals object_ =
+    let
+        filledInOptionals =
+            fillInOptionals { where_ = Absent }
+
+        optionalArgs =
+            [ Argument.optional "where" filledInOptionals.where_ DB.InputObject.encodeProjectWhereInput ]
+                |> List.filterMap identity
+    in
+    Object.selectionForCompositeField "deleteManyProjects" optionalArgs object_ identity
