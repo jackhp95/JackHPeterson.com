@@ -5,10 +5,16 @@
 module DB.Object.BlogPostPreviousValues exposing (body, createdAt, id, status, tags, teaser, title, updatedAt, views)
 
 import DB.Enum.Status
+import DB.InputObject
+import DB.Interface
 import DB.Object
 import DB.Scalar
 import DB.ScalarDecoders
+import DB.Union
+import Graphql.Internal.Builder.Argument as Argument exposing (Argument)
 import Graphql.Internal.Builder.Object as Object
+import Graphql.Internal.Encode as Encode exposing (Value)
+import Graphql.Operation exposing (RootMutation, RootQuery, RootSubscription)
 import Graphql.OptionalArgument exposing (OptionalArgument(..))
 import Graphql.SelectionSet exposing (SelectionSet)
 import Json.Decode as Decode

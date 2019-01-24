@@ -8,7 +8,7 @@
     "db": "elm-graphql https://api-euwest.graphcms.com/v1/cjramrrgj09zi01ht13w1xqot/master --base DB --output src/elm",
     "tidy": "npx elm-format . --yes",
     "deploy": "rm -rf ./docs/ && cp -a -R ./build/. ./docs/",
-    "full-deploy": "rm -rf ./node_modules && rm -rf ./elm_stuff && npm i && npm run db && npx elm-app build && npm run deploy && npm run tidy"
+    "full-deploy": "rm -rf ./node_modules && rm -rf ./elm-stuff && npm i && npm run db && npx elm-app build && npm run deploy && npm run tidy"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,6 @@
   "devDependencies": {
     "create-elm-app": "^3.0.3",
     "elm-format": "^0.8.1",
-    "@dillonkearns/elm-graphql": "^3.1.0",
+    "@dillonkearns/elm-graphql": "^3.1.0"
   }
 }

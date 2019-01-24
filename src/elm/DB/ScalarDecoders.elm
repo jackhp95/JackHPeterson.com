@@ -4,7 +4,8 @@
 
 module DB.ScalarDecoders exposing (DateTime, Id, Long, decoders)
 
-import DB.Scalar
+import DB.Scalar exposing (defaultDecoders)
+import Json.Decode as Decode exposing (Decoder)
 
 
 type alias DateTime =
