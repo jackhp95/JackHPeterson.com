@@ -67,7 +67,7 @@ view { contacts, projects, blogPosts } =
                 ]
                 [ -- projectsView [ ( "Projects" , projects ) ] ,
                   section [] <|
-                    h3 [ jacky [ sticky, top 0, tc, bg white, z 1, pa 3, ml 1, J.track 1, J.b <| oColor 0.05 black, fw 7 ] ]
+                    h3 [ jacky [ sticky, top 0, tc, bg white, z 1, pa 3, J.track 1, J.b <| oColor 0.05 black, fw 7, l [ ml 1 ] ] ]
                         [ text "Blogs" ]
                         :: List.map blogPost blogPosts
                 ]
@@ -126,7 +126,9 @@ blogPost { title, maybeTeaser, body } =
             ]
             [ div
                 [ jacky
-                    [ o 70, J.tr, absolute, absoluteFill, flex, justifyEnd, itemsEnd, ma 1 ]
+                    [ reg [ o 70, J.tr, absolute, absoluteFill, flex, justifyEnd, itemsEnd, ma 1, flexColumn ]
+                    , m [ flexRow ]
+                    ]
                 ]
                 [ span
                     [ jacky
@@ -161,7 +163,7 @@ blogPost { title, maybeTeaser, body } =
                 Just teaser ->
                     p
                         [ jacky
-                            [ lh 3, o 80 ]
+                            [ lh 3, o 80, mt 2 ]
                         ]
                         [ text teaser ]
             ]
@@ -257,7 +259,13 @@ navTab ( icon, name ) =
 
 sideBar : List Contact -> Html Msg
 sideBar contacts =
-    aside [ jacky [ flexGrow1, flexShrink0, center, pa 3, ma 4, flex, flexWrap, justifyAround, itemsCenter, mwch 40 ] ]
+    aside
+        [ jacky
+            [ reg [ center, pa 3, flex, flexWrap, justifyAround, itemsCenter ]
+            , m [ ma 3 ]
+            , l [ flexGrow1, flexShrink0, ma 4, mwch 40 ]
+            ]
+        ]
         [ header [ jacky [ flex, flexWrap, itemsCenter, justifyCenter ] ]
             [ div
                 [ jacky
