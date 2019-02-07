@@ -26,11 +26,13 @@ type ContactOrderByInput
     | Action_DESC
     | Handle_ASC
     | Handle_DESC
+    | Hue_ASC
+    | Hue_DESC
 
 
 list : List ContactOrderByInput
 list =
-    [ Status_ASC, Status_DESC, Id_ASC, Id_DESC, CreatedAt_ASC, CreatedAt_DESC, UpdatedAt_ASC, UpdatedAt_DESC, Name_ASC, Name_DESC, Color_ASC, Color_DESC, Href_ASC, Href_DESC, Action_ASC, Action_DESC, Handle_ASC, Handle_DESC ]
+    [ Status_ASC, Status_DESC, Id_ASC, Id_DESC, CreatedAt_ASC, CreatedAt_DESC, UpdatedAt_ASC, UpdatedAt_DESC, Name_ASC, Name_DESC, Color_ASC, Color_DESC, Href_ASC, Href_DESC, Action_ASC, Action_DESC, Handle_ASC, Handle_DESC, Hue_ASC, Hue_DESC ]
 
 
 decoder : Decoder ContactOrderByInput
@@ -92,6 +94,12 @@ decoder =
 
                     "handle_DESC" ->
                         Decode.succeed Handle_DESC
+
+                    "hue_ASC" ->
+                        Decode.succeed Hue_ASC
+
+                    "hue_DESC" ->
+                        Decode.succeed Hue_DESC
 
                     _ ->
                         Decode.fail ("Invalid ContactOrderByInput type, " ++ string ++ " try re-running the @dillonkearns/elm-graphql CLI ")
@@ -156,3 +164,9 @@ toString enum =
 
         Handle_DESC ->
             "handle_DESC"
+
+        Hue_ASC ->
+            "hue_ASC"
+
+        Hue_DESC ->
+            "hue_DESC"

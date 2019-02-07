@@ -1,5 +1,6 @@
-module Type exposing (BlogPost, Contact, Everything, Model, Msg(..), Project)
+module Type exposing (BlogPost, Contact, Everything, Model, Msg(..), Project, Route(..))
 
+import Color exposing (..)
 import Graphql.Http
 
 
@@ -8,8 +9,15 @@ type Msg
     | NoOp
 
 
+type Route
+    = Home
+    | Post
+
+
 type alias Model =
-    { blogPosts : List BlogPost
+    { route : Route
+    , primary : Color
+    , blogPosts : List BlogPost
     , contacts : List Contact
     , projects : List Project
     }
@@ -17,7 +25,7 @@ type alias Model =
 
 type alias BlogPost =
     { title : String
-    , teaser : Maybe String
+    , maybeTeaser : Maybe String
     , body : String
 
     -- , picture : Maybe String
@@ -29,6 +37,7 @@ type alias BlogPost =
 
 type alias Contact =
     { color : Maybe String
+    , hue : Maybe Float
     , href : String
     , name : String
     , action : String

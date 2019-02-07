@@ -433,46 +433,1239 @@ body {
   }
 }
 
-.sticky {
-  position: -webkit-sticky;
-  position: sticky;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+  elm-hot creates an additional div wrapper around the app to make HMR possible.
+  This could break styling in development mode if you are using Elm UI.
+
+  More context in the issue:
+    https://github.com/halfzebra/create-elm-app/issues/320
+*/
+[data-elm-hot="true"] {
+  height: inherit;
 }
 
-.parallax {
-  background-attachment: fixed !important;
+/* MODULAR SCALE */
+/* ------------
+-- Variables --
+------------ */
+.loading-button,
+.loading-button .loading-spinner,
+.loading-button .loading-label {
+  transition: 0.3s ease all !important;
 }
 
-input[type="radio"].toggle,
-input[type="checkbox"].toggle {
+.loading-button {
+  overflow: hidden;
+}
+
+.loading-button .loading-spinner {
+  left: 50%;
+  margin-left: 32px/-2;
+  transform: scale(0.2);
+}
+
+.loading-button .loading-label {
+  position: relative;
+  display: inline-block;
+}
+
+.loading-button .loading .loading-label {
+  opacity: 0;
+  transform: scale(2.2);
+}
+
+.loading-button .loading .loading-spinner {
+  opacity: 1;
+  margin-left: 0;
+  transform: none;
+}
+
+:root {
+  font-size: calc(1rem + calc(22 - 16) * calc(calc(100vw - 320px) / calc(3840 - 320)));
+  line-height: 1.38;
+  font-weight: normal;
+}
+
+/* -----------------
+  -- Align Browsers --
+  ----------------- */
+::before,
+::after {
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+
+/* Add the correct display in IE 9-. */
+article,
+aside,
+footer,
+header,
+nav,
+section,
+details,
+menu,
+summary,
+canvas,
+video {
+  display: block;
+}
+
+/**
+    * Prevent modern browsers from displaying `audio` without controls.
+    * Remove excess height in iOS 5 devices.
+    */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/* Hide elements that should be hidden in IE, Safari, and Firefox < 22. */
+[hidden],
+template,
+script,
+style {
+  display: none;
+}
+
+img {
+  /* prevent dragging of ghost image */
+  -webkit-user-drag: none;
+  /* Responsive images! */
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* tables still need cellspacing="0" in the markup */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* --------------------------------------
+  -- User Selection Based On Device Type --
+  -------------------------------------- */
+/* One or more available input mechanism(s) 
+     can hover over elements with ease */
+@media (any-hover: hover) {
+  html {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+}
+
+/* One or more available input mechanism(s) can hover, 
+        but not easily (e.g., many mobile devices emulate 
+        hovering when the user performs a long tap) */
+@media (any-hover: on-demand) {
+  html {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+/* One or more available input mechanism(s) cannot 
+        hover (or there are no pointing input mechanisms) */
+@media (any-hover: none) {
+  html {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+/* -------
+  -- ARIA --
+  ------- */
+/* Change the cursor on busy elements (opinionated). */
+[aria-busy=true] {
+  cursor: progress;
+}
+
+/* Change the cursor on control elements (opinionated). */
+[aria-controls] {
+  cursor: pointer;
+}
+
+/* Change the display on visually hidden accessible elements (opinionated). */
+[aria-hidden=false][hidden]:not(:focus) {
+  clip: rect(0, 0, 0, 0);
+  display: inherit;
+  position: absolute;
+}
+
+/* Change the cursor on disabled, not-editable, or otherwise inoperable elements (opinionated). */
+[aria-disabled] {
+  cursor: default;
+}
+
+/* ---------
+  -- Custom --
+  --------- */
+*,
+::before,
+::after,
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+i,
+u,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+fieldset,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+optgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+time,
+mark,
+audio,
+video,
+meter,
+progress,
+a,
+area,
+button,
+input,
+label,
+select,
+summary,
+textarea {
+  /* Background */
+  background-image: none;
+  background-color: transparent;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* Text */
+  color: hsla(var(--hue), 20%, 40%, 0.8);
+  text-decoration: none;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  font-display: optional;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  /* font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+  font-style: inherit;
+  text-transform: none;
+  /* Font Size */
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Rendering */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-kerning: auto;
+  font-kerning: auto;
+  /* Behavior */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: default;
+  /* Layout */
+  text-align: left;
+  text-align: inherit;
+  vertical-align: baseline;
+  line-height: 1.38;
+  line-height: inherit;
+  border: 0 none;
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* Outline */
+  outline-offset: 0;
+  outline-style: none;
+  outline-width: 0;
+  /* Transition */
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+/* ---------
+  -- Inherit --
+  --------- */
+*,
+::before,
+::after,
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+i,
+u,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+fieldset,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+optgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+time,
+mark,
+audio,
+video,
+meter,
+progress,
+a,
+area,
+button,
+input,
+label,
+select,
+summary,
+textarea {
+  font-size: inherit;
+  color: inherit;
+}
+
+/* Opt into lists with util classes */
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/* Psuedo States */
+:focus {
+  outline: 0;
+}
+
+::selection,
+::-moz-selection {
+  color: white;
+  background-color: hsla(var(--hue), 100%, 40%, 0.62);
+  text-shadow: 0px 0px 0.125rem hsla(var(--hue), 20%, 40%, 0.38);
+}
+
+/* ------------------------
+  -- Restore Inline Styles --
+  ------------------------ */
+/* Weight */
+strong,
+b {
+  font-weight: bold;
+}
+
+/* Style */
+em,
+i {
+  font-style: italic;
+}
+
+/* Decoration */
+u,
+ins {
+  text-decoration: underline;
+}
+
+s,
+del {
+  text-decoration: line-through;
+}
+
+/* Size */
+small,
+sub,
+sup {
+  position: relative;
+  vertical-align: baseline;
+  font-size: 80%;
+  line-height: 0;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Semantic Quotes */
+blockquote,
+q {
+  quotes: """";
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: "";
+  content: none;
+}
+
+/* Normalizes Horizonal Rule Accross Browsers */
+hr {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 0;
+}
+
+/* Code / Keyboard / Sample Output */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+}
+
+/* Pre-formatted */
+pre {
+  white-space: pre-wrap;
+}
+
+/* Semantic Inline Tags */
+/* 
+  abbr, q, cite, dfn, mark, var, time {
+      These are Semantic, they should render the same as the default
+  } 
+  */
+/* --------
+  -- Forms --
+  -------- */
+::placeholder {
+  opacity: 0.62;
+  color: inherit;
+}
+
+::placeholder {
+  opacity: 0.62;
+  color: inherit;
+}
+
+:-moz-placeholder {
+  opacity: 0.62;
+  color: inherit;
+}
+
+::-moz-placeholder {
+  opacity: 0.62;
+  color: inherit;
+}
+
+::-webkit-input-placeholder {
+  opacity: 0.62;
+  color: inherit;
+}
+
+::-webkit-input-placeholder {
+  opacity: 0.62;
+  color: inherit;
+}
+
+button,
+input {
+  line-height: 1;
+  text-transform: none;
+}
+
+/**
+      * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+      *  and `video` controls.
+      * 2. Correct inability to style clickable `input` types in iOS.
+      * 3. Improve usability and consistency of cursor style between image-type
+      *  `input` and others.
+      */
+button,
+html [type=button],
+[type=reset],
+[type=submit] {
+  cursor: pointer;
+}
+
+/**
+      * Re-set default cursor for disabled elements.
+      */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+      * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+      * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+      *  (include `-moz` to future-proof).
+      */
+[type=search] {
+  -webkit-box-sizing: border-box;
+  /* 2 */
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: textfield;
+  /* 1 */
+}
+
+/**
+      * Remove inner padding and search cancel button in Safari 5 and Chrome
+      * on OS X.
+      */
+[type=search]::-webkit-search-cancel-button,
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+textarea {
+  overflow: auto;
+  /* Remove default vertical scrollbar in IE 8/9. */
+  vertical-align: top;
+  /* Improve readability and alignment in all browsers. */
+  overflow: auto;
+  /* Remove the default vertical scrollbar in IE. */
+  resize: vertical;
+  /* Change the resize direction on textareas in all browsers (opinionated). */
+}
+
+/* To remove Firefox's dotted outline on buttons and anchor tags I added the code below: */
+a:focus,
+a:active,
+button::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner,
+select::-moz-focus-inner,
+[type=file]>[type=button]::-moz-focus-inner {
+  border: 0;
+  outline: 0;
+}
+
+/**
+      * Restore the focus styles unset by the previous rule.
+      */
+:-moz-focusring {
+  border: 0;
+  outline: 0;
+}
+
+progress,
+meter {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+/**
+      * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+      */
+[type=search]::-webkit-search-cancel-button,
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+      * 1. Correct the inability to style clickable types in iOS and Safari.
+      * 2. Change font properties to `inherit` in Safari.
+      */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/* --------------
+  -- Interactive --
+  -------------- */
+a,
+area,
+button,
+input,
+label,
+select,
+summary,
+textarea,
+[tabindex] {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+/* Restyle Range Slider */
+[type=range] {
+  -webkit-appearance: none;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+[type=range]::-moz-focus-outer {
+  border: 0;
+}
+
+[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.25rem;
+  padding: 0.125rem;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: none;
+  background: hsla(var(--hue), 20%, 40%, 0.125);
+  border-radius: 25px;
+  border: none;
+}
+
+[type=range]::-webkit-slider-thumb {
+  box-shadow: none;
+  border: none;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 99999px;
+  background: hsla(var(--hue), 100%, 40%);
+  cursor: pointer;
+  -webkit-appearance: none;
+  transform: translate3d(0, -0.5rem, 0) scale3d(1, 1, 1);
+  border: 0.0625rem solid white;
+  transition-property: border-color, transform, background-color;
+}
+
+[type=range]::-webkit-slider-thumb:hover,
+[type=range]:focus::-webkit-slider-thumb,
+[type=range]:active::-webkit-slider-thumb {
+  transform: translate3d(0, -0.5rem, 0) scale3d(1.2, 1.2, 1.2);
+  border: 0.125rem solid hsla(var(--hue), 100%, 40%);
+  background: white;
+  transition-property: border-color, transform, background-color;
+}
+
+[type=range]::-moz-range-track {
+  width: 100%;
+  height: 0.25rem;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: none;
+  background: hsla(var(--hue), 20%, 40%, 0.125);
+  border-radius: 25px;
+  border: none;
+  transform: scale3d(1, 1, 1);
+}
+
+[type=range]::-moz-range-thumb {
+  box-shadow: none;
+  border: 0.0625rem solid white;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 99999px;
+  background: hsla(var(--hue), 100%, 40%);
+  cursor: pointer;
+  transform: scale3d(1, 1, 1);
+  border: 0.0625rem solid white;
+  transition-property: border-color, transform, background-color;
+}
+
+[type=range]::-moz-range-thumb:hover,
+[type=range]:focus::-moz-range-thumb,
+[type=range]:active::-moz-range-thumb {
+  transform: scale3d(1.2, 1.2, 1.2);
+  border: 0.125rem solid hsla(var(--hue), 100%, 40%);
+  background: white;
+  transition-property: border-color, transform, background-color;
+}
+
+[type=range]::-ms-track {
+  width: 100%;
+  height: 0.25rem;
+  padding: 0.125rem;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 39px 0;
+  color: transparent;
+}
+
+[type=range]::-ms-fill-lower {
+  background: hsla(var(--hue), 20%, 40%, 0.125);
+  border: none;
+  border-radius: 50px;
+  box-shadow: none;
+}
+
+[type=range]::-ms-fill-upper {
+  background: hsla(var(--hue), 20%, 40%, 0.125);
+  border: none;
+  border-radius: 50px;
+  box-shadow: none;
+}
+
+[type=range]::-ms-thumb {
+  box-shadow: none;
+  border: 0.0625rem solid white;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 99999px;
+  background: hsla(var(--hue), 100%, 40%);
+  cursor: pointer;
+  transform: scale3d(1, 1, 1);
+  border: 0.0625rem solid white;
+  transition-property: border-color, transform, background-color;
+}
+
+[type=range]::-ms-thumb:hover,
+[type=range]:active::-ms-thumb {
+  transform: scale3d(1.2, 1.2, 1.2);
+  border: 0.125rem solid hsla(var(--hue), 100%, 40%);
+  background: white;
+  transition-property: border-color, transform, background-color;
+}
+
+[type=range]:focus::-ms-fill-lower {
+  background: hsla(var(--hue), 20%, 40%, 0.125);
+}
+
+[type=range]:focus::-ms-fill-upper {
+  background: hsla(var(--hue), 20%, 40%, 0.125);
+}
+
+/* ----------------
+  -- Default Forms --
+  ---------------- */
+/* Text Fields */
+[type=text],
+[type=password],
+[type=email],
+[type=url],
+[type=date],
+[type=month],
+[type=time],
+[type=datetime],
+[type=datetime-local],
+[type=week],
+[type=number],
+[type=search],
+[type=tel],
+select,
+textarea {
+  background: hsla(var(--hue), 20%, 40%, 0.03125);
+  background-clip: padding-box;
+  border: 0.125rem solid hsla(var(--hue), 100%, 40%, 0.0625);
+  border-radius: 0.38rem;
+  color: hsla(var(--hue), 20%, 40%, 0.8);
+  display: block;
+  width: 100%;
+  padding: 0.38rem 0.62rem;
+  line-height: 1.38;
+  outline: 0;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  /* Transition */
+  transition-property: box-shadow;
+}
+
+[type=text]:focus,
+[type=password]:focus,
+[type=email]:focus,
+[type=url]:focus,
+[type=date]:focus,
+[type=month]:focus,
+[type=time]:focus,
+[type=datetime]:focus,
+[type=datetime-local]:focus,
+[type=week]:focus,
+[type=number]:focus,
+[type=search]:focus,
+[type=tel]:focus,
+select:focus,
+textarea:focus {
+  background-color: white;
+  border-color: hsla(var(--hue), 100%, 40%, 0.62);
+  outline: 0;
+}
+
+[type=text][disabled],
+[type=password][disabled],
+[type=email][disabled],
+[type=url][disabled],
+[type=date][disabled],
+[type=month][disabled],
+[type=time][disabled],
+[type=datetime][disabled],
+[type=datetime-local][disabled],
+[type=week][disabled],
+[type=number][disabled],
+[type=search][disabled],
+[type=tel][disabled],
+select[disabled],
+textarea[disabled] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* Calendar Picker */
+[type=date],
+[type=datetime-local],
+[type=datetime] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  overflow: hidden;
+  position: relative;
+}
+
+[type=date]::-webkit-inner-spin-button,
+[type=datetime-local]::-webkit-inner-spin-button,
+[type=datetime]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+
+[type=date]::-webkit-datetime-edit,
+[type=datetime-local]::-webkit-datetime-edit,
+[type=datetime]::-webkit-datetime-edit {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+[type=date]::-webkit-clear-button,
+[type=datetime-local]::-webkit-clear-button,
+[type=datetime]::-webkit-clear-button {
+  -webkit-appearance: none;
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+
+[type=date]::-webkit-datetime-edit-fields-wrapper,
+[type=datetime-local]::-webkit-datetime-edit-fields-wrapper,
+[type=datetime]::-webkit-datetime-edit-fields-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+[type=date]::-webkit-calendar-picker-indicator,
+[type=datetime-local]::-webkit-calendar-picker-indicator,
+[type=datetime]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  opacity: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
+  margin: 0;
+  padding: 0;
 }
 
-input[type="radio"].toggle:checked~.checked,
-input[type="checkbox"].toggle:checked~.checked {
-  display: inherit;
+/* Color Picker */
+[type=color] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  vertical-align: text-bottom;
+  overflow: hidden;
+  display: inline-block;
+  background: #fff;
+  /* in case this ever gets supported */
+  border-radius: 1em;
+  border: 0.125rem solid transparent;
+  box-shadow: 0 0 0 0.125rem hsla(var(--hue), 20%, 40%, 0.125);
+  transition-property: border-color, border-radius, box-shadow;
 }
 
-input[type="radio"].toggle:checked~.unchecked,
-input[type="checkbox"].toggle:checked~.unchecked {
+[type=color]:hover,
+[type=color]:active,
+[type=color]:focus {
+  border-radius: 0.125rem;
+  border: 0.125rem solid transparent;
+  box-shadow: 0 0 0 0.125rem hsla(var(--hue), 100%, 40%);
+  transition-property: border-color, border-radius, width, box-shadow;
+}
+
+[type=color]::-webkit-color-swatch-wrapper {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+[type=color]::-webkit-color-swatch {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+[type=color]::-moz-color-swatch-wrapper {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+[type=color]::-moz-color-swatch {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+[type=color]:-moz-color-swatch-wrapper {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+[type=color]:-moz-color-swatch {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+[type=color]::-ms-color-swatch-wrapper {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+[type=color]::-ms-color-swatch {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+[type=color]:-ms-color-swatch-wrapper {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+[type=color]:-ms-color-swatch {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Checkbox, Radio, File */
+[type=checkbox] {
+  border-radius: 0.125rem;
+}
+
+[type=radio] {
+  border-radius: 100%;
+}
+
+[type=checkbox],
+[type=radio] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  /* in case this ever gets supported */
+  background: #fff;
+  border: 0.125rem solid transparent;
+  box-shadow: 0 0 0 0.125rem hsla(var(--hue), 20%, 40%, 0.125), hsla(var(--hue), 100%, 40%) inset 0 0 0 0;
+  display: inline-block;
+  height: 1em;
+  margin: 0.25em;
+  transition-property: border-color, box-shadow;
+  vertical-align: -38%;
+  width: 1em;
+}
+
+[type=checkbox]:focus,
+[type=radio]:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 0.125rem hsla(var(--hue), 100%, 40%), hsla(var(--hue), 100%, 40%) inset 0 0 0 0;
+}
+
+[type=checkbox]:checked,
+[type=radio]:checked {
+  border-color: #fff;
+  box-shadow: 0 0 0 0.125rem hsla(var(--hue), 20%, 40%, 0.125), hsla(var(--hue), 100%, 40%) inset 0 0 0 0.5rem;
+}
+
+[type=checkbox]:checked:focus,
+[type=radio]:checked:focus {
+  box-shadow: 0 0 0 0.125rem hsla(var(--hue), 100%, 40%), hsla(var(--hue), 100%, 40%) inset 0 0 0 0.5rem;
+}
+
+[type=checkbox][disabled],
+[type=checkbox][disabled]+span,
+[type=radio][disabled],
+[type=radio][disabled]+span {
+  opacity: 0.4;
+}
+
+/* STATE */
+input:focus:invalid,
+textarea:focus:invalid,
+select:focus:invalid {
+  border-color: #ea1c0d;
+  color: #f44336;
+}
+
+/* SELECT */
+select:not([size]):not([multiple]) {
+  height: -webkit-(2.375rem);
+  height: 2.375rem;
+}
+
+select[multiple] {
+  height: auto;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+option:not(:checked) {
+  color: #002033;
+  /* prevent <option>s from becoming transparent as well */
+}
+
+/* Buttons */
+[type=submit],
+[type=reset],
+[type=button],
+button,
+.button {
+  border: 0;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  display: inline-block;
+  font-weight: inherit;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  position: relative;
+  /* Interaction */
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  /* Animation */
+  transition-property: border-color, background-color, box-shadow;
+}
+
+/* Details & Summary  */
+summary::-webkit-details-marker {
   display: none;
 }
 
-input[type="radio"].toggle~.checked,
-input[type="checkbox"].toggle~.checked {
+/* Progress Bar */
+progress {
+  width: 100%;
+  /* Firefox */
+  border: none;
+  background: hsla(var(--hue), 20%, 40%, 0.025);
+  border: 0 solid transparent;
+  border-radius: 99999px;
+}
+
+progress::-webkit-progress-bar {
+  background: hsla(var(--hue), 20%, 40%, 0.025);
+  border: 0 solid transparent;
+  border-radius: 99999px;
+}
+
+progress::-webkit-progress-value {
+  background: hsla(var(--hue), 100%, 40%);
+  border-radius: 99999px;
+}
+
+progress::-moz-progress-bar {
+  background: hsla(var(--hue), 100%, 40%);
+  border-radius: 99999px;
+}
+
+/* Meter */
+meter {
+  background: hsla(var(--hue), 20%, 40%, 0.025);
+  border: 0 solid transparent;
+  border-radius: 0;
+  color: hsla(var(--hue), 100%, 40%);
+  width: 100%;
+  outline: 0;
+  overflow: hidden;
+}
+
+meter::-moz-meter-bar {
+  background: none;
+  background-color: hsla(var(--hue), 100%, 40%);
+}
+
+meter::-webkit-meter-bar {
+  background: none;
+  background-color: hsla(var(--hue), 100%, 40%);
+}
+
+/* Details & Summary */
+details>summary:first-of-type {
+  list-style-type: none;
+}
+
+summary::-webkit-details-marker {
   display: none;
 }
 
-input[type="radio"].toggle~.unchecked,
-input[type="checkbox"].toggle~.unchecked {
-  display: inherit;
-}
 
-.text-clip,
-.hover-text-clip:hover,
-.hover-text-clip:focus {
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css";

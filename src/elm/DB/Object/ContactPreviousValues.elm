@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module DB.Object.ContactPreviousValues exposing (action, color, createdAt, handle, href, id, name, status, updatedAt)
+module DB.Object.ContactPreviousValues exposing (action, color, createdAt, handle, href, hue, id, name, status, updatedAt)
 
 import DB.Enum.Status
 import DB.InputObject
@@ -63,3 +63,8 @@ action =
 handle : SelectionSet String DB.Object.ContactPreviousValues
 handle =
     Object.selectionForField "String" "handle" [] Decode.string
+
+
+hue : SelectionSet (Maybe Float) DB.Object.ContactPreviousValues
+hue =
+    Object.selectionForField "(Maybe Float)" "hue" [] (Decode.float |> Decode.nullable)

@@ -894,14 +894,15 @@ buildAssetUpdateManyWithoutImagesProjectInput fillOptionals =
     let
         optionals =
             fillOptionals
-                { create = Absent, connect = Absent, disconnect = Absent, delete = Absent, update = Absent, updateMany = Absent, deleteMany = Absent, upsert = Absent }
+                { create = Absent, connect = Absent, set = Absent, disconnect = Absent, delete = Absent, update = Absent, updateMany = Absent, deleteMany = Absent, upsert = Absent }
     in
-    AssetUpdateManyWithoutImagesProjectInput { create = optionals.create, connect = optionals.connect, disconnect = optionals.disconnect, delete = optionals.delete, update = optionals.update, updateMany = optionals.updateMany, deleteMany = optionals.deleteMany, upsert = optionals.upsert }
+    AssetUpdateManyWithoutImagesProjectInput { create = optionals.create, connect = optionals.connect, set = optionals.set, disconnect = optionals.disconnect, delete = optionals.delete, update = optionals.update, updateMany = optionals.updateMany, deleteMany = optionals.deleteMany, upsert = optionals.upsert }
 
 
 type alias AssetUpdateManyWithoutImagesProjectInputOptionalFields =
     { create : OptionalArgument (List AssetCreateWithoutImagesProjectInput)
     , connect : OptionalArgument (List AssetWhereUniqueInput)
+    , set : OptionalArgument (List AssetWhereUniqueInput)
     , disconnect : OptionalArgument (List AssetWhereUniqueInput)
     , delete : OptionalArgument (List AssetWhereUniqueInput)
     , update : OptionalArgument (List AssetUpdateWithWhereUniqueWithoutImagesProjectInput)
@@ -919,6 +920,7 @@ references to itself either directly (recursive) or indirectly (circular). See
 type alias AssetUpdateManyWithoutImagesProjectInputRaw =
     { create : OptionalArgument (List AssetCreateWithoutImagesProjectInput)
     , connect : OptionalArgument (List AssetWhereUniqueInput)
+    , set : OptionalArgument (List AssetWhereUniqueInput)
     , disconnect : OptionalArgument (List AssetWhereUniqueInput)
     , delete : OptionalArgument (List AssetWhereUniqueInput)
     , update : OptionalArgument (List AssetUpdateWithWhereUniqueWithoutImagesProjectInput)
@@ -939,7 +941,7 @@ type AssetUpdateManyWithoutImagesProjectInput
 encodeAssetUpdateManyWithoutImagesProjectInput : AssetUpdateManyWithoutImagesProjectInput -> Value
 encodeAssetUpdateManyWithoutImagesProjectInput (AssetUpdateManyWithoutImagesProjectInput input) =
     Encode.maybeObject
-        [ ( "create", (encodeAssetCreateWithoutImagesProjectInput |> Encode.list) |> Encode.optional input.create ), ( "connect", (encodeAssetWhereUniqueInput |> Encode.list) |> Encode.optional input.connect ), ( "disconnect", (encodeAssetWhereUniqueInput |> Encode.list) |> Encode.optional input.disconnect ), ( "delete", (encodeAssetWhereUniqueInput |> Encode.list) |> Encode.optional input.delete ), ( "update", (encodeAssetUpdateWithWhereUniqueWithoutImagesProjectInput |> Encode.list) |> Encode.optional input.update ), ( "updateMany", (encodeAssetUpdateManyWithWhereNestedInput |> Encode.list) |> Encode.optional input.updateMany ), ( "deleteMany", (encodeAssetScalarWhereInput |> Encode.list) |> Encode.optional input.deleteMany ), ( "upsert", (encodeAssetUpsertWithWhereUniqueWithoutImagesProjectInput |> Encode.list) |> Encode.optional input.upsert ) ]
+        [ ( "create", (encodeAssetCreateWithoutImagesProjectInput |> Encode.list) |> Encode.optional input.create ), ( "connect", (encodeAssetWhereUniqueInput |> Encode.list) |> Encode.optional input.connect ), ( "set", (encodeAssetWhereUniqueInput |> Encode.list) |> Encode.optional input.set ), ( "disconnect", (encodeAssetWhereUniqueInput |> Encode.list) |> Encode.optional input.disconnect ), ( "delete", (encodeAssetWhereUniqueInput |> Encode.list) |> Encode.optional input.delete ), ( "update", (encodeAssetUpdateWithWhereUniqueWithoutImagesProjectInput |> Encode.list) |> Encode.optional input.update ), ( "updateMany", (encodeAssetUpdateManyWithWhereNestedInput |> Encode.list) |> Encode.optional input.updateMany ), ( "deleteMany", (encodeAssetScalarWhereInput |> Encode.list) |> Encode.optional input.deleteMany ), ( "upsert", (encodeAssetUpsertWithWhereUniqueWithoutImagesProjectInput |> Encode.list) |> Encode.optional input.upsert ) ]
 
 
 buildAssetUpdateOneWithoutPictureBlogPostInput : (AssetUpdateOneWithoutPictureBlogPostInputOptionalFields -> AssetUpdateOneWithoutPictureBlogPostInputOptionalFields) -> AssetUpdateOneWithoutPictureBlogPostInput
@@ -2248,14 +2250,15 @@ buildBlogPostUpdateManyWithoutPictureInput fillOptionals =
     let
         optionals =
             fillOptionals
-                { create = Absent, connect = Absent, disconnect = Absent, delete = Absent, update = Absent, updateMany = Absent, deleteMany = Absent, upsert = Absent }
+                { create = Absent, connect = Absent, set = Absent, disconnect = Absent, delete = Absent, update = Absent, updateMany = Absent, deleteMany = Absent, upsert = Absent }
     in
-    BlogPostUpdateManyWithoutPictureInput { create = optionals.create, connect = optionals.connect, disconnect = optionals.disconnect, delete = optionals.delete, update = optionals.update, updateMany = optionals.updateMany, deleteMany = optionals.deleteMany, upsert = optionals.upsert }
+    BlogPostUpdateManyWithoutPictureInput { create = optionals.create, connect = optionals.connect, set = optionals.set, disconnect = optionals.disconnect, delete = optionals.delete, update = optionals.update, updateMany = optionals.updateMany, deleteMany = optionals.deleteMany, upsert = optionals.upsert }
 
 
 type alias BlogPostUpdateManyWithoutPictureInputOptionalFields =
     { create : OptionalArgument (List BlogPostCreateWithoutPictureInput)
     , connect : OptionalArgument (List BlogPostWhereUniqueInput)
+    , set : OptionalArgument (List BlogPostWhereUniqueInput)
     , disconnect : OptionalArgument (List BlogPostWhereUniqueInput)
     , delete : OptionalArgument (List BlogPostWhereUniqueInput)
     , update : OptionalArgument (List BlogPostUpdateWithWhereUniqueWithoutPictureInput)
@@ -2273,6 +2276,7 @@ references to itself either directly (recursive) or indirectly (circular). See
 type alias BlogPostUpdateManyWithoutPictureInputRaw =
     { create : OptionalArgument (List BlogPostCreateWithoutPictureInput)
     , connect : OptionalArgument (List BlogPostWhereUniqueInput)
+    , set : OptionalArgument (List BlogPostWhereUniqueInput)
     , disconnect : OptionalArgument (List BlogPostWhereUniqueInput)
     , delete : OptionalArgument (List BlogPostWhereUniqueInput)
     , update : OptionalArgument (List BlogPostUpdateWithWhereUniqueWithoutPictureInput)
@@ -2293,7 +2297,7 @@ type BlogPostUpdateManyWithoutPictureInput
 encodeBlogPostUpdateManyWithoutPictureInput : BlogPostUpdateManyWithoutPictureInput -> Value
 encodeBlogPostUpdateManyWithoutPictureInput (BlogPostUpdateManyWithoutPictureInput input) =
     Encode.maybeObject
-        [ ( "create", (encodeBlogPostCreateWithoutPictureInput |> Encode.list) |> Encode.optional input.create ), ( "connect", (encodeBlogPostWhereUniqueInput |> Encode.list) |> Encode.optional input.connect ), ( "disconnect", (encodeBlogPostWhereUniqueInput |> Encode.list) |> Encode.optional input.disconnect ), ( "delete", (encodeBlogPostWhereUniqueInput |> Encode.list) |> Encode.optional input.delete ), ( "update", (encodeBlogPostUpdateWithWhereUniqueWithoutPictureInput |> Encode.list) |> Encode.optional input.update ), ( "updateMany", (encodeBlogPostUpdateManyWithWhereNestedInput |> Encode.list) |> Encode.optional input.updateMany ), ( "deleteMany", (encodeBlogPostScalarWhereInput |> Encode.list) |> Encode.optional input.deleteMany ), ( "upsert", (encodeBlogPostUpsertWithWhereUniqueWithoutPictureInput |> Encode.list) |> Encode.optional input.upsert ) ]
+        [ ( "create", (encodeBlogPostCreateWithoutPictureInput |> Encode.list) |> Encode.optional input.create ), ( "connect", (encodeBlogPostWhereUniqueInput |> Encode.list) |> Encode.optional input.connect ), ( "set", (encodeBlogPostWhereUniqueInput |> Encode.list) |> Encode.optional input.set ), ( "disconnect", (encodeBlogPostWhereUniqueInput |> Encode.list) |> Encode.optional input.disconnect ), ( "delete", (encodeBlogPostWhereUniqueInput |> Encode.list) |> Encode.optional input.delete ), ( "update", (encodeBlogPostUpdateWithWhereUniqueWithoutPictureInput |> Encode.list) |> Encode.optional input.update ), ( "updateMany", (encodeBlogPostUpdateManyWithWhereNestedInput |> Encode.list) |> Encode.optional input.updateMany ), ( "deleteMany", (encodeBlogPostScalarWhereInput |> Encode.list) |> Encode.optional input.deleteMany ), ( "upsert", (encodeBlogPostUpsertWithWhereUniqueWithoutPictureInput |> Encode.list) |> Encode.optional input.upsert ) ]
 
 
 buildBlogPostUpdateWithWhereUniqueWithoutPictureInput : BlogPostUpdateWithWhereUniqueWithoutPictureInputRequiredFields -> BlogPostUpdateWithWhereUniqueWithoutPictureInput
@@ -2850,9 +2854,9 @@ buildContactCreateInput required fillOptionals =
     let
         optionals =
             fillOptionals
-                { status = Absent, color = Absent }
+                { status = Absent, color = Absent, hue = Absent }
     in
-    { status = optionals.status, name = required.name, color = optionals.color, href = required.href, action = required.action, handle = required.handle }
+    { status = optionals.status, name = required.name, color = optionals.color, href = required.href, action = required.action, handle = required.handle, hue = optionals.hue }
 
 
 type alias ContactCreateInputRequiredFields =
@@ -2866,6 +2870,7 @@ type alias ContactCreateInputRequiredFields =
 type alias ContactCreateInputOptionalFields =
     { status : OptionalArgument DB.Enum.Status.Status
     , color : OptionalArgument String
+    , hue : OptionalArgument Float
     }
 
 
@@ -2878,6 +2883,7 @@ type alias ContactCreateInput =
     , href : String
     , action : String
     , handle : String
+    , hue : OptionalArgument Float
     }
 
 
@@ -2886,7 +2892,7 @@ type alias ContactCreateInput =
 encodeContactCreateInput : ContactCreateInput -> Value
 encodeContactCreateInput input =
     Encode.maybeObject
-        [ ( "status", Encode.enum DB.Enum.Status.toString |> Encode.optional input.status ), ( "name", Encode.string input.name |> Just ), ( "color", Encode.string |> Encode.optional input.color ), ( "href", Encode.string input.href |> Just ), ( "action", Encode.string input.action |> Just ), ( "handle", Encode.string input.handle |> Just ) ]
+        [ ( "status", Encode.enum DB.Enum.Status.toString |> Encode.optional input.status ), ( "name", Encode.string input.name |> Just ), ( "color", Encode.string |> Encode.optional input.color ), ( "href", Encode.string input.href |> Just ), ( "action", Encode.string input.action |> Just ), ( "handle", Encode.string input.handle |> Just ), ( "hue", Encode.float |> Encode.optional input.hue ) ]
 
 
 buildContactSubscriptionWhereInput : (ContactSubscriptionWhereInputOptionalFields -> ContactSubscriptionWhereInputOptionalFields) -> ContactSubscriptionWhereInput
@@ -2947,9 +2953,9 @@ buildContactUpdateInput fillOptionals =
     let
         optionals =
             fillOptionals
-                { status = Absent, name = Absent, color = Absent, href = Absent, action = Absent, handle = Absent }
+                { status = Absent, name = Absent, color = Absent, href = Absent, action = Absent, handle = Absent, hue = Absent }
     in
-    { status = optionals.status, name = optionals.name, color = optionals.color, href = optionals.href, action = optionals.action, handle = optionals.handle }
+    { status = optionals.status, name = optionals.name, color = optionals.color, href = optionals.href, action = optionals.action, handle = optionals.handle, hue = optionals.hue }
 
 
 type alias ContactUpdateInputOptionalFields =
@@ -2959,6 +2965,7 @@ type alias ContactUpdateInputOptionalFields =
     , href : OptionalArgument String
     , action : OptionalArgument String
     , handle : OptionalArgument String
+    , hue : OptionalArgument Float
     }
 
 
@@ -2971,6 +2978,7 @@ type alias ContactUpdateInput =
     , href : OptionalArgument String
     , action : OptionalArgument String
     , handle : OptionalArgument String
+    , hue : OptionalArgument Float
     }
 
 
@@ -2979,7 +2987,7 @@ type alias ContactUpdateInput =
 encodeContactUpdateInput : ContactUpdateInput -> Value
 encodeContactUpdateInput input =
     Encode.maybeObject
-        [ ( "status", Encode.enum DB.Enum.Status.toString |> Encode.optional input.status ), ( "name", Encode.string |> Encode.optional input.name ), ( "color", Encode.string |> Encode.optional input.color ), ( "href", Encode.string |> Encode.optional input.href ), ( "action", Encode.string |> Encode.optional input.action ), ( "handle", Encode.string |> Encode.optional input.handle ) ]
+        [ ( "status", Encode.enum DB.Enum.Status.toString |> Encode.optional input.status ), ( "name", Encode.string |> Encode.optional input.name ), ( "color", Encode.string |> Encode.optional input.color ), ( "href", Encode.string |> Encode.optional input.href ), ( "action", Encode.string |> Encode.optional input.action ), ( "handle", Encode.string |> Encode.optional input.handle ), ( "hue", Encode.float |> Encode.optional input.hue ) ]
 
 
 buildContactUpdateManyMutationInput : (ContactUpdateManyMutationInputOptionalFields -> ContactUpdateManyMutationInputOptionalFields) -> ContactUpdateManyMutationInput
@@ -2987,9 +2995,9 @@ buildContactUpdateManyMutationInput fillOptionals =
     let
         optionals =
             fillOptionals
-                { status = Absent, name = Absent, color = Absent, href = Absent, action = Absent, handle = Absent }
+                { status = Absent, name = Absent, color = Absent, href = Absent, action = Absent, handle = Absent, hue = Absent }
     in
-    { status = optionals.status, name = optionals.name, color = optionals.color, href = optionals.href, action = optionals.action, handle = optionals.handle }
+    { status = optionals.status, name = optionals.name, color = optionals.color, href = optionals.href, action = optionals.action, handle = optionals.handle, hue = optionals.hue }
 
 
 type alias ContactUpdateManyMutationInputOptionalFields =
@@ -2999,6 +3007,7 @@ type alias ContactUpdateManyMutationInputOptionalFields =
     , href : OptionalArgument String
     , action : OptionalArgument String
     , handle : OptionalArgument String
+    , hue : OptionalArgument Float
     }
 
 
@@ -3011,6 +3020,7 @@ type alias ContactUpdateManyMutationInput =
     , href : OptionalArgument String
     , action : OptionalArgument String
     , handle : OptionalArgument String
+    , hue : OptionalArgument Float
     }
 
 
@@ -3019,7 +3029,7 @@ type alias ContactUpdateManyMutationInput =
 encodeContactUpdateManyMutationInput : ContactUpdateManyMutationInput -> Value
 encodeContactUpdateManyMutationInput input =
     Encode.maybeObject
-        [ ( "status", Encode.enum DB.Enum.Status.toString |> Encode.optional input.status ), ( "name", Encode.string |> Encode.optional input.name ), ( "color", Encode.string |> Encode.optional input.color ), ( "href", Encode.string |> Encode.optional input.href ), ( "action", Encode.string |> Encode.optional input.action ), ( "handle", Encode.string |> Encode.optional input.handle ) ]
+        [ ( "status", Encode.enum DB.Enum.Status.toString |> Encode.optional input.status ), ( "name", Encode.string |> Encode.optional input.name ), ( "color", Encode.string |> Encode.optional input.color ), ( "href", Encode.string |> Encode.optional input.href ), ( "action", Encode.string |> Encode.optional input.action ), ( "handle", Encode.string |> Encode.optional input.handle ), ( "hue", Encode.float |> Encode.optional input.hue ) ]
 
 
 buildContactWhereInput : (ContactWhereInputOptionalFields -> ContactWhereInputOptionalFields) -> ContactWhereInput
@@ -3027,9 +3037,9 @@ buildContactWhereInput fillOptionals =
     let
         optionals =
             fillOptionals
-                { and = Absent, or = Absent, not = Absent, status = Absent, status_not = Absent, status_in = Absent, status_not_in = Absent, id = Absent, id_not = Absent, id_in = Absent, id_not_in = Absent, id_lt = Absent, id_lte = Absent, id_gt = Absent, id_gte = Absent, id_contains = Absent, id_not_contains = Absent, id_starts_with = Absent, id_not_starts_with = Absent, id_ends_with = Absent, id_not_ends_with = Absent, createdAt = Absent, createdAt_not = Absent, createdAt_in = Absent, createdAt_not_in = Absent, createdAt_lt = Absent, createdAt_lte = Absent, createdAt_gt = Absent, createdAt_gte = Absent, updatedAt = Absent, updatedAt_not = Absent, updatedAt_in = Absent, updatedAt_not_in = Absent, updatedAt_lt = Absent, updatedAt_lte = Absent, updatedAt_gt = Absent, updatedAt_gte = Absent, name = Absent, name_not = Absent, name_in = Absent, name_not_in = Absent, name_lt = Absent, name_lte = Absent, name_gt = Absent, name_gte = Absent, name_contains = Absent, name_not_contains = Absent, name_starts_with = Absent, name_not_starts_with = Absent, name_ends_with = Absent, name_not_ends_with = Absent, color = Absent, color_not = Absent, color_in = Absent, color_not_in = Absent, color_lt = Absent, color_lte = Absent, color_gt = Absent, color_gte = Absent, color_contains = Absent, color_not_contains = Absent, color_starts_with = Absent, color_not_starts_with = Absent, color_ends_with = Absent, color_not_ends_with = Absent, href = Absent, href_not = Absent, href_in = Absent, href_not_in = Absent, href_lt = Absent, href_lte = Absent, href_gt = Absent, href_gte = Absent, href_contains = Absent, href_not_contains = Absent, href_starts_with = Absent, href_not_starts_with = Absent, href_ends_with = Absent, href_not_ends_with = Absent, action = Absent, action_not = Absent, action_in = Absent, action_not_in = Absent, action_lt = Absent, action_lte = Absent, action_gt = Absent, action_gte = Absent, action_contains = Absent, action_not_contains = Absent, action_starts_with = Absent, action_not_starts_with = Absent, action_ends_with = Absent, action_not_ends_with = Absent, handle = Absent, handle_not = Absent, handle_in = Absent, handle_not_in = Absent, handle_lt = Absent, handle_lte = Absent, handle_gt = Absent, handle_gte = Absent, handle_contains = Absent, handle_not_contains = Absent, handle_starts_with = Absent, handle_not_starts_with = Absent, handle_ends_with = Absent, handle_not_ends_with = Absent }
+                { and = Absent, or = Absent, not = Absent, status = Absent, status_not = Absent, status_in = Absent, status_not_in = Absent, id = Absent, id_not = Absent, id_in = Absent, id_not_in = Absent, id_lt = Absent, id_lte = Absent, id_gt = Absent, id_gte = Absent, id_contains = Absent, id_not_contains = Absent, id_starts_with = Absent, id_not_starts_with = Absent, id_ends_with = Absent, id_not_ends_with = Absent, createdAt = Absent, createdAt_not = Absent, createdAt_in = Absent, createdAt_not_in = Absent, createdAt_lt = Absent, createdAt_lte = Absent, createdAt_gt = Absent, createdAt_gte = Absent, updatedAt = Absent, updatedAt_not = Absent, updatedAt_in = Absent, updatedAt_not_in = Absent, updatedAt_lt = Absent, updatedAt_lte = Absent, updatedAt_gt = Absent, updatedAt_gte = Absent, name = Absent, name_not = Absent, name_in = Absent, name_not_in = Absent, name_lt = Absent, name_lte = Absent, name_gt = Absent, name_gte = Absent, name_contains = Absent, name_not_contains = Absent, name_starts_with = Absent, name_not_starts_with = Absent, name_ends_with = Absent, name_not_ends_with = Absent, color = Absent, color_not = Absent, color_in = Absent, color_not_in = Absent, color_lt = Absent, color_lte = Absent, color_gt = Absent, color_gte = Absent, color_contains = Absent, color_not_contains = Absent, color_starts_with = Absent, color_not_starts_with = Absent, color_ends_with = Absent, color_not_ends_with = Absent, href = Absent, href_not = Absent, href_in = Absent, href_not_in = Absent, href_lt = Absent, href_lte = Absent, href_gt = Absent, href_gte = Absent, href_contains = Absent, href_not_contains = Absent, href_starts_with = Absent, href_not_starts_with = Absent, href_ends_with = Absent, href_not_ends_with = Absent, action = Absent, action_not = Absent, action_in = Absent, action_not_in = Absent, action_lt = Absent, action_lte = Absent, action_gt = Absent, action_gte = Absent, action_contains = Absent, action_not_contains = Absent, action_starts_with = Absent, action_not_starts_with = Absent, action_ends_with = Absent, action_not_ends_with = Absent, handle = Absent, handle_not = Absent, handle_in = Absent, handle_not_in = Absent, handle_lt = Absent, handle_lte = Absent, handle_gt = Absent, handle_gte = Absent, handle_contains = Absent, handle_not_contains = Absent, handle_starts_with = Absent, handle_not_starts_with = Absent, handle_ends_with = Absent, handle_not_ends_with = Absent, hue = Absent, hue_not = Absent, hue_in = Absent, hue_not_in = Absent, hue_lt = Absent, hue_lte = Absent, hue_gt = Absent, hue_gte = Absent }
     in
-    ContactWhereInput { and = optionals.and, or = optionals.or, not = optionals.not, status = optionals.status, status_not = optionals.status_not, status_in = optionals.status_in, status_not_in = optionals.status_not_in, id = optionals.id, id_not = optionals.id_not, id_in = optionals.id_in, id_not_in = optionals.id_not_in, id_lt = optionals.id_lt, id_lte = optionals.id_lte, id_gt = optionals.id_gt, id_gte = optionals.id_gte, id_contains = optionals.id_contains, id_not_contains = optionals.id_not_contains, id_starts_with = optionals.id_starts_with, id_not_starts_with = optionals.id_not_starts_with, id_ends_with = optionals.id_ends_with, id_not_ends_with = optionals.id_not_ends_with, createdAt = optionals.createdAt, createdAt_not = optionals.createdAt_not, createdAt_in = optionals.createdAt_in, createdAt_not_in = optionals.createdAt_not_in, createdAt_lt = optionals.createdAt_lt, createdAt_lte = optionals.createdAt_lte, createdAt_gt = optionals.createdAt_gt, createdAt_gte = optionals.createdAt_gte, updatedAt = optionals.updatedAt, updatedAt_not = optionals.updatedAt_not, updatedAt_in = optionals.updatedAt_in, updatedAt_not_in = optionals.updatedAt_not_in, updatedAt_lt = optionals.updatedAt_lt, updatedAt_lte = optionals.updatedAt_lte, updatedAt_gt = optionals.updatedAt_gt, updatedAt_gte = optionals.updatedAt_gte, name = optionals.name, name_not = optionals.name_not, name_in = optionals.name_in, name_not_in = optionals.name_not_in, name_lt = optionals.name_lt, name_lte = optionals.name_lte, name_gt = optionals.name_gt, name_gte = optionals.name_gte, name_contains = optionals.name_contains, name_not_contains = optionals.name_not_contains, name_starts_with = optionals.name_starts_with, name_not_starts_with = optionals.name_not_starts_with, name_ends_with = optionals.name_ends_with, name_not_ends_with = optionals.name_not_ends_with, color = optionals.color, color_not = optionals.color_not, color_in = optionals.color_in, color_not_in = optionals.color_not_in, color_lt = optionals.color_lt, color_lte = optionals.color_lte, color_gt = optionals.color_gt, color_gte = optionals.color_gte, color_contains = optionals.color_contains, color_not_contains = optionals.color_not_contains, color_starts_with = optionals.color_starts_with, color_not_starts_with = optionals.color_not_starts_with, color_ends_with = optionals.color_ends_with, color_not_ends_with = optionals.color_not_ends_with, href = optionals.href, href_not = optionals.href_not, href_in = optionals.href_in, href_not_in = optionals.href_not_in, href_lt = optionals.href_lt, href_lte = optionals.href_lte, href_gt = optionals.href_gt, href_gte = optionals.href_gte, href_contains = optionals.href_contains, href_not_contains = optionals.href_not_contains, href_starts_with = optionals.href_starts_with, href_not_starts_with = optionals.href_not_starts_with, href_ends_with = optionals.href_ends_with, href_not_ends_with = optionals.href_not_ends_with, action = optionals.action, action_not = optionals.action_not, action_in = optionals.action_in, action_not_in = optionals.action_not_in, action_lt = optionals.action_lt, action_lte = optionals.action_lte, action_gt = optionals.action_gt, action_gte = optionals.action_gte, action_contains = optionals.action_contains, action_not_contains = optionals.action_not_contains, action_starts_with = optionals.action_starts_with, action_not_starts_with = optionals.action_not_starts_with, action_ends_with = optionals.action_ends_with, action_not_ends_with = optionals.action_not_ends_with, handle = optionals.handle, handle_not = optionals.handle_not, handle_in = optionals.handle_in, handle_not_in = optionals.handle_not_in, handle_lt = optionals.handle_lt, handle_lte = optionals.handle_lte, handle_gt = optionals.handle_gt, handle_gte = optionals.handle_gte, handle_contains = optionals.handle_contains, handle_not_contains = optionals.handle_not_contains, handle_starts_with = optionals.handle_starts_with, handle_not_starts_with = optionals.handle_not_starts_with, handle_ends_with = optionals.handle_ends_with, handle_not_ends_with = optionals.handle_not_ends_with }
+    ContactWhereInput { and = optionals.and, or = optionals.or, not = optionals.not, status = optionals.status, status_not = optionals.status_not, status_in = optionals.status_in, status_not_in = optionals.status_not_in, id = optionals.id, id_not = optionals.id_not, id_in = optionals.id_in, id_not_in = optionals.id_not_in, id_lt = optionals.id_lt, id_lte = optionals.id_lte, id_gt = optionals.id_gt, id_gte = optionals.id_gte, id_contains = optionals.id_contains, id_not_contains = optionals.id_not_contains, id_starts_with = optionals.id_starts_with, id_not_starts_with = optionals.id_not_starts_with, id_ends_with = optionals.id_ends_with, id_not_ends_with = optionals.id_not_ends_with, createdAt = optionals.createdAt, createdAt_not = optionals.createdAt_not, createdAt_in = optionals.createdAt_in, createdAt_not_in = optionals.createdAt_not_in, createdAt_lt = optionals.createdAt_lt, createdAt_lte = optionals.createdAt_lte, createdAt_gt = optionals.createdAt_gt, createdAt_gte = optionals.createdAt_gte, updatedAt = optionals.updatedAt, updatedAt_not = optionals.updatedAt_not, updatedAt_in = optionals.updatedAt_in, updatedAt_not_in = optionals.updatedAt_not_in, updatedAt_lt = optionals.updatedAt_lt, updatedAt_lte = optionals.updatedAt_lte, updatedAt_gt = optionals.updatedAt_gt, updatedAt_gte = optionals.updatedAt_gte, name = optionals.name, name_not = optionals.name_not, name_in = optionals.name_in, name_not_in = optionals.name_not_in, name_lt = optionals.name_lt, name_lte = optionals.name_lte, name_gt = optionals.name_gt, name_gte = optionals.name_gte, name_contains = optionals.name_contains, name_not_contains = optionals.name_not_contains, name_starts_with = optionals.name_starts_with, name_not_starts_with = optionals.name_not_starts_with, name_ends_with = optionals.name_ends_with, name_not_ends_with = optionals.name_not_ends_with, color = optionals.color, color_not = optionals.color_not, color_in = optionals.color_in, color_not_in = optionals.color_not_in, color_lt = optionals.color_lt, color_lte = optionals.color_lte, color_gt = optionals.color_gt, color_gte = optionals.color_gte, color_contains = optionals.color_contains, color_not_contains = optionals.color_not_contains, color_starts_with = optionals.color_starts_with, color_not_starts_with = optionals.color_not_starts_with, color_ends_with = optionals.color_ends_with, color_not_ends_with = optionals.color_not_ends_with, href = optionals.href, href_not = optionals.href_not, href_in = optionals.href_in, href_not_in = optionals.href_not_in, href_lt = optionals.href_lt, href_lte = optionals.href_lte, href_gt = optionals.href_gt, href_gte = optionals.href_gte, href_contains = optionals.href_contains, href_not_contains = optionals.href_not_contains, href_starts_with = optionals.href_starts_with, href_not_starts_with = optionals.href_not_starts_with, href_ends_with = optionals.href_ends_with, href_not_ends_with = optionals.href_not_ends_with, action = optionals.action, action_not = optionals.action_not, action_in = optionals.action_in, action_not_in = optionals.action_not_in, action_lt = optionals.action_lt, action_lte = optionals.action_lte, action_gt = optionals.action_gt, action_gte = optionals.action_gte, action_contains = optionals.action_contains, action_not_contains = optionals.action_not_contains, action_starts_with = optionals.action_starts_with, action_not_starts_with = optionals.action_not_starts_with, action_ends_with = optionals.action_ends_with, action_not_ends_with = optionals.action_not_ends_with, handle = optionals.handle, handle_not = optionals.handle_not, handle_in = optionals.handle_in, handle_not_in = optionals.handle_not_in, handle_lt = optionals.handle_lt, handle_lte = optionals.handle_lte, handle_gt = optionals.handle_gt, handle_gte = optionals.handle_gte, handle_contains = optionals.handle_contains, handle_not_contains = optionals.handle_not_contains, handle_starts_with = optionals.handle_starts_with, handle_not_starts_with = optionals.handle_not_starts_with, handle_ends_with = optionals.handle_ends_with, handle_not_ends_with = optionals.handle_not_ends_with, hue = optionals.hue, hue_not = optionals.hue_not, hue_in = optionals.hue_in, hue_not_in = optionals.hue_not_in, hue_lt = optionals.hue_lt, hue_lte = optionals.hue_lte, hue_gt = optionals.hue_gt, hue_gte = optionals.hue_gte }
 
 
 type alias ContactWhereInputOptionalFields =
@@ -3140,6 +3150,14 @@ type alias ContactWhereInputOptionalFields =
     , handle_not_starts_with : OptionalArgument String
     , handle_ends_with : OptionalArgument String
     , handle_not_ends_with : OptionalArgument String
+    , hue : OptionalArgument Float
+    , hue_not : OptionalArgument Float
+    , hue_in : OptionalArgument (List Float)
+    , hue_not_in : OptionalArgument (List Float)
+    , hue_lt : OptionalArgument Float
+    , hue_lte : OptionalArgument Float
+    , hue_gt : OptionalArgument Float
+    , hue_gte : OptionalArgument Float
     }
 
 
@@ -3256,6 +3274,14 @@ type alias ContactWhereInputRaw =
     , handle_not_starts_with : OptionalArgument String
     , handle_ends_with : OptionalArgument String
     , handle_not_ends_with : OptionalArgument String
+    , hue : OptionalArgument Float
+    , hue_not : OptionalArgument Float
+    , hue_in : OptionalArgument (List Float)
+    , hue_not_in : OptionalArgument (List Float)
+    , hue_lt : OptionalArgument Float
+    , hue_lte : OptionalArgument Float
+    , hue_gt : OptionalArgument Float
+    , hue_gte : OptionalArgument Float
     }
 
 
@@ -3270,7 +3296,7 @@ type ContactWhereInput
 encodeContactWhereInput : ContactWhereInput -> Value
 encodeContactWhereInput (ContactWhereInput input) =
     Encode.maybeObject
-        [ ( "AND", (encodeContactWhereInput |> Encode.list) |> Encode.optional input.and ), ( "OR", (encodeContactWhereInput |> Encode.list) |> Encode.optional input.or ), ( "NOT", (encodeContactWhereInput |> Encode.list) |> Encode.optional input.not ), ( "status", Encode.enum DB.Enum.Status.toString |> Encode.optional input.status ), ( "status_not", Encode.enum DB.Enum.Status.toString |> Encode.optional input.status_not ), ( "status_in", (Encode.enum DB.Enum.Status.toString |> Encode.list) |> Encode.optional input.status_in ), ( "status_not_in", (Encode.enum DB.Enum.Status.toString |> Encode.list) |> Encode.optional input.status_not_in ), ( "id", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id ), ( "id_not", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_not ), ( "id_in", ((\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.list) |> Encode.optional input.id_not_in ), ( "id_lt", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_lt ), ( "id_lte", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_lte ), ( "id_gt", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_gt ), ( "id_gte", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_gte ), ( "id_contains", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_contains ), ( "id_not_contains", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_not_contains ), ( "id_starts_with", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_starts_with ), ( "id_not_starts_with", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_not_starts_with ), ( "id_ends_with", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_ends_with ), ( "id_not_ends_with", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_not_ends_with ), ( "createdAt", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.createdAt ), ( "createdAt_not", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.createdAt_not ), ( "createdAt_in", ((\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.list) |> Encode.optional input.createdAt_in ), ( "createdAt_not_in", ((\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.list) |> Encode.optional input.createdAt_not_in ), ( "createdAt_lt", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.createdAt_lt ), ( "createdAt_lte", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.createdAt_lte ), ( "createdAt_gt", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.createdAt_gt ), ( "createdAt_gte", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.createdAt_gte ), ( "updatedAt", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.updatedAt ), ( "updatedAt_not", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.updatedAt_not ), ( "updatedAt_in", ((\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.list) |> Encode.optional input.updatedAt_in ), ( "updatedAt_not_in", ((\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.list) |> Encode.optional input.updatedAt_not_in ), ( "updatedAt_lt", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.updatedAt_lt ), ( "updatedAt_lte", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.updatedAt_lte ), ( "updatedAt_gt", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.updatedAt_gt ), ( "updatedAt_gte", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.updatedAt_gte ), ( "name", Encode.string |> Encode.optional input.name ), ( "name_not", Encode.string |> Encode.optional input.name_not ), ( "name_in", (Encode.string |> Encode.list) |> Encode.optional input.name_in ), ( "name_not_in", (Encode.string |> Encode.list) |> Encode.optional input.name_not_in ), ( "name_lt", Encode.string |> Encode.optional input.name_lt ), ( "name_lte", Encode.string |> Encode.optional input.name_lte ), ( "name_gt", Encode.string |> Encode.optional input.name_gt ), ( "name_gte", Encode.string |> Encode.optional input.name_gte ), ( "name_contains", Encode.string |> Encode.optional input.name_contains ), ( "name_not_contains", Encode.string |> Encode.optional input.name_not_contains ), ( "name_starts_with", Encode.string |> Encode.optional input.name_starts_with ), ( "name_not_starts_with", Encode.string |> Encode.optional input.name_not_starts_with ), ( "name_ends_with", Encode.string |> Encode.optional input.name_ends_with ), ( "name_not_ends_with", Encode.string |> Encode.optional input.name_not_ends_with ), ( "color", Encode.string |> Encode.optional input.color ), ( "color_not", Encode.string |> Encode.optional input.color_not ), ( "color_in", (Encode.string |> Encode.list) |> Encode.optional input.color_in ), ( "color_not_in", (Encode.string |> Encode.list) |> Encode.optional input.color_not_in ), ( "color_lt", Encode.string |> Encode.optional input.color_lt ), ( "color_lte", Encode.string |> Encode.optional input.color_lte ), ( "color_gt", Encode.string |> Encode.optional input.color_gt ), ( "color_gte", Encode.string |> Encode.optional input.color_gte ), ( "color_contains", Encode.string |> Encode.optional input.color_contains ), ( "color_not_contains", Encode.string |> Encode.optional input.color_not_contains ), ( "color_starts_with", Encode.string |> Encode.optional input.color_starts_with ), ( "color_not_starts_with", Encode.string |> Encode.optional input.color_not_starts_with ), ( "color_ends_with", Encode.string |> Encode.optional input.color_ends_with ), ( "color_not_ends_with", Encode.string |> Encode.optional input.color_not_ends_with ), ( "href", Encode.string |> Encode.optional input.href ), ( "href_not", Encode.string |> Encode.optional input.href_not ), ( "href_in", (Encode.string |> Encode.list) |> Encode.optional input.href_in ), ( "href_not_in", (Encode.string |> Encode.list) |> Encode.optional input.href_not_in ), ( "href_lt", Encode.string |> Encode.optional input.href_lt ), ( "href_lte", Encode.string |> Encode.optional input.href_lte ), ( "href_gt", Encode.string |> Encode.optional input.href_gt ), ( "href_gte", Encode.string |> Encode.optional input.href_gte ), ( "href_contains", Encode.string |> Encode.optional input.href_contains ), ( "href_not_contains", Encode.string |> Encode.optional input.href_not_contains ), ( "href_starts_with", Encode.string |> Encode.optional input.href_starts_with ), ( "href_not_starts_with", Encode.string |> Encode.optional input.href_not_starts_with ), ( "href_ends_with", Encode.string |> Encode.optional input.href_ends_with ), ( "href_not_ends_with", Encode.string |> Encode.optional input.href_not_ends_with ), ( "action", Encode.string |> Encode.optional input.action ), ( "action_not", Encode.string |> Encode.optional input.action_not ), ( "action_in", (Encode.string |> Encode.list) |> Encode.optional input.action_in ), ( "action_not_in", (Encode.string |> Encode.list) |> Encode.optional input.action_not_in ), ( "action_lt", Encode.string |> Encode.optional input.action_lt ), ( "action_lte", Encode.string |> Encode.optional input.action_lte ), ( "action_gt", Encode.string |> Encode.optional input.action_gt ), ( "action_gte", Encode.string |> Encode.optional input.action_gte ), ( "action_contains", Encode.string |> Encode.optional input.action_contains ), ( "action_not_contains", Encode.string |> Encode.optional input.action_not_contains ), ( "action_starts_with", Encode.string |> Encode.optional input.action_starts_with ), ( "action_not_starts_with", Encode.string |> Encode.optional input.action_not_starts_with ), ( "action_ends_with", Encode.string |> Encode.optional input.action_ends_with ), ( "action_not_ends_with", Encode.string |> Encode.optional input.action_not_ends_with ), ( "handle", Encode.string |> Encode.optional input.handle ), ( "handle_not", Encode.string |> Encode.optional input.handle_not ), ( "handle_in", (Encode.string |> Encode.list) |> Encode.optional input.handle_in ), ( "handle_not_in", (Encode.string |> Encode.list) |> Encode.optional input.handle_not_in ), ( "handle_lt", Encode.string |> Encode.optional input.handle_lt ), ( "handle_lte", Encode.string |> Encode.optional input.handle_lte ), ( "handle_gt", Encode.string |> Encode.optional input.handle_gt ), ( "handle_gte", Encode.string |> Encode.optional input.handle_gte ), ( "handle_contains", Encode.string |> Encode.optional input.handle_contains ), ( "handle_not_contains", Encode.string |> Encode.optional input.handle_not_contains ), ( "handle_starts_with", Encode.string |> Encode.optional input.handle_starts_with ), ( "handle_not_starts_with", Encode.string |> Encode.optional input.handle_not_starts_with ), ( "handle_ends_with", Encode.string |> Encode.optional input.handle_ends_with ), ( "handle_not_ends_with", Encode.string |> Encode.optional input.handle_not_ends_with ) ]
+        [ ( "AND", (encodeContactWhereInput |> Encode.list) |> Encode.optional input.and ), ( "OR", (encodeContactWhereInput |> Encode.list) |> Encode.optional input.or ), ( "NOT", (encodeContactWhereInput |> Encode.list) |> Encode.optional input.not ), ( "status", Encode.enum DB.Enum.Status.toString |> Encode.optional input.status ), ( "status_not", Encode.enum DB.Enum.Status.toString |> Encode.optional input.status_not ), ( "status_in", (Encode.enum DB.Enum.Status.toString |> Encode.list) |> Encode.optional input.status_in ), ( "status_not_in", (Encode.enum DB.Enum.Status.toString |> Encode.list) |> Encode.optional input.status_not_in ), ( "id", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id ), ( "id_not", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_not ), ( "id_in", ((\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.list) |> Encode.optional input.id_not_in ), ( "id_lt", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_lt ), ( "id_lte", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_lte ), ( "id_gt", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_gt ), ( "id_gte", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_gte ), ( "id_contains", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_contains ), ( "id_not_contains", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_not_contains ), ( "id_starts_with", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_starts_with ), ( "id_not_starts_with", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_not_starts_with ), ( "id_ends_with", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_ends_with ), ( "id_not_ends_with", (\(DB.Scalar.Id raw) -> Encode.string raw) |> Encode.optional input.id_not_ends_with ), ( "createdAt", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.createdAt ), ( "createdAt_not", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.createdAt_not ), ( "createdAt_in", ((\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.list) |> Encode.optional input.createdAt_in ), ( "createdAt_not_in", ((\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.list) |> Encode.optional input.createdAt_not_in ), ( "createdAt_lt", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.createdAt_lt ), ( "createdAt_lte", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.createdAt_lte ), ( "createdAt_gt", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.createdAt_gt ), ( "createdAt_gte", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.createdAt_gte ), ( "updatedAt", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.updatedAt ), ( "updatedAt_not", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.updatedAt_not ), ( "updatedAt_in", ((\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.list) |> Encode.optional input.updatedAt_in ), ( "updatedAt_not_in", ((\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.list) |> Encode.optional input.updatedAt_not_in ), ( "updatedAt_lt", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.updatedAt_lt ), ( "updatedAt_lte", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.updatedAt_lte ), ( "updatedAt_gt", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.updatedAt_gt ), ( "updatedAt_gte", (\(DB.Scalar.DateTime raw) -> Encode.string raw) |> Encode.optional input.updatedAt_gte ), ( "name", Encode.string |> Encode.optional input.name ), ( "name_not", Encode.string |> Encode.optional input.name_not ), ( "name_in", (Encode.string |> Encode.list) |> Encode.optional input.name_in ), ( "name_not_in", (Encode.string |> Encode.list) |> Encode.optional input.name_not_in ), ( "name_lt", Encode.string |> Encode.optional input.name_lt ), ( "name_lte", Encode.string |> Encode.optional input.name_lte ), ( "name_gt", Encode.string |> Encode.optional input.name_gt ), ( "name_gte", Encode.string |> Encode.optional input.name_gte ), ( "name_contains", Encode.string |> Encode.optional input.name_contains ), ( "name_not_contains", Encode.string |> Encode.optional input.name_not_contains ), ( "name_starts_with", Encode.string |> Encode.optional input.name_starts_with ), ( "name_not_starts_with", Encode.string |> Encode.optional input.name_not_starts_with ), ( "name_ends_with", Encode.string |> Encode.optional input.name_ends_with ), ( "name_not_ends_with", Encode.string |> Encode.optional input.name_not_ends_with ), ( "color", Encode.string |> Encode.optional input.color ), ( "color_not", Encode.string |> Encode.optional input.color_not ), ( "color_in", (Encode.string |> Encode.list) |> Encode.optional input.color_in ), ( "color_not_in", (Encode.string |> Encode.list) |> Encode.optional input.color_not_in ), ( "color_lt", Encode.string |> Encode.optional input.color_lt ), ( "color_lte", Encode.string |> Encode.optional input.color_lte ), ( "color_gt", Encode.string |> Encode.optional input.color_gt ), ( "color_gte", Encode.string |> Encode.optional input.color_gte ), ( "color_contains", Encode.string |> Encode.optional input.color_contains ), ( "color_not_contains", Encode.string |> Encode.optional input.color_not_contains ), ( "color_starts_with", Encode.string |> Encode.optional input.color_starts_with ), ( "color_not_starts_with", Encode.string |> Encode.optional input.color_not_starts_with ), ( "color_ends_with", Encode.string |> Encode.optional input.color_ends_with ), ( "color_not_ends_with", Encode.string |> Encode.optional input.color_not_ends_with ), ( "href", Encode.string |> Encode.optional input.href ), ( "href_not", Encode.string |> Encode.optional input.href_not ), ( "href_in", (Encode.string |> Encode.list) |> Encode.optional input.href_in ), ( "href_not_in", (Encode.string |> Encode.list) |> Encode.optional input.href_not_in ), ( "href_lt", Encode.string |> Encode.optional input.href_lt ), ( "href_lte", Encode.string |> Encode.optional input.href_lte ), ( "href_gt", Encode.string |> Encode.optional input.href_gt ), ( "href_gte", Encode.string |> Encode.optional input.href_gte ), ( "href_contains", Encode.string |> Encode.optional input.href_contains ), ( "href_not_contains", Encode.string |> Encode.optional input.href_not_contains ), ( "href_starts_with", Encode.string |> Encode.optional input.href_starts_with ), ( "href_not_starts_with", Encode.string |> Encode.optional input.href_not_starts_with ), ( "href_ends_with", Encode.string |> Encode.optional input.href_ends_with ), ( "href_not_ends_with", Encode.string |> Encode.optional input.href_not_ends_with ), ( "action", Encode.string |> Encode.optional input.action ), ( "action_not", Encode.string |> Encode.optional input.action_not ), ( "action_in", (Encode.string |> Encode.list) |> Encode.optional input.action_in ), ( "action_not_in", (Encode.string |> Encode.list) |> Encode.optional input.action_not_in ), ( "action_lt", Encode.string |> Encode.optional input.action_lt ), ( "action_lte", Encode.string |> Encode.optional input.action_lte ), ( "action_gt", Encode.string |> Encode.optional input.action_gt ), ( "action_gte", Encode.string |> Encode.optional input.action_gte ), ( "action_contains", Encode.string |> Encode.optional input.action_contains ), ( "action_not_contains", Encode.string |> Encode.optional input.action_not_contains ), ( "action_starts_with", Encode.string |> Encode.optional input.action_starts_with ), ( "action_not_starts_with", Encode.string |> Encode.optional input.action_not_starts_with ), ( "action_ends_with", Encode.string |> Encode.optional input.action_ends_with ), ( "action_not_ends_with", Encode.string |> Encode.optional input.action_not_ends_with ), ( "handle", Encode.string |> Encode.optional input.handle ), ( "handle_not", Encode.string |> Encode.optional input.handle_not ), ( "handle_in", (Encode.string |> Encode.list) |> Encode.optional input.handle_in ), ( "handle_not_in", (Encode.string |> Encode.list) |> Encode.optional input.handle_not_in ), ( "handle_lt", Encode.string |> Encode.optional input.handle_lt ), ( "handle_lte", Encode.string |> Encode.optional input.handle_lte ), ( "handle_gt", Encode.string |> Encode.optional input.handle_gt ), ( "handle_gte", Encode.string |> Encode.optional input.handle_gte ), ( "handle_contains", Encode.string |> Encode.optional input.handle_contains ), ( "handle_not_contains", Encode.string |> Encode.optional input.handle_not_contains ), ( "handle_starts_with", Encode.string |> Encode.optional input.handle_starts_with ), ( "handle_not_starts_with", Encode.string |> Encode.optional input.handle_not_starts_with ), ( "handle_ends_with", Encode.string |> Encode.optional input.handle_ends_with ), ( "handle_not_ends_with", Encode.string |> Encode.optional input.handle_not_ends_with ), ( "hue", Encode.float |> Encode.optional input.hue ), ( "hue_not", Encode.float |> Encode.optional input.hue_not ), ( "hue_in", (Encode.float |> Encode.list) |> Encode.optional input.hue_in ), ( "hue_not_in", (Encode.float |> Encode.list) |> Encode.optional input.hue_not_in ), ( "hue_lt", Encode.float |> Encode.optional input.hue_lt ), ( "hue_lte", Encode.float |> Encode.optional input.hue_lte ), ( "hue_gt", Encode.float |> Encode.optional input.hue_gt ), ( "hue_gte", Encode.float |> Encode.optional input.hue_gte ) ]
 
 
 buildContactWhereUniqueInput : (ContactWhereUniqueInputOptionalFields -> ContactWhereUniqueInputOptionalFields) -> ContactWhereUniqueInput
@@ -4327,14 +4353,15 @@ buildProjectUpdateManyWithoutImagesInput fillOptionals =
     let
         optionals =
             fillOptionals
-                { create = Absent, connect = Absent, disconnect = Absent, delete = Absent, update = Absent, updateMany = Absent, deleteMany = Absent, upsert = Absent }
+                { create = Absent, connect = Absent, set = Absent, disconnect = Absent, delete = Absent, update = Absent, updateMany = Absent, deleteMany = Absent, upsert = Absent }
     in
-    ProjectUpdateManyWithoutImagesInput { create = optionals.create, connect = optionals.connect, disconnect = optionals.disconnect, delete = optionals.delete, update = optionals.update, updateMany = optionals.updateMany, deleteMany = optionals.deleteMany, upsert = optionals.upsert }
+    ProjectUpdateManyWithoutImagesInput { create = optionals.create, connect = optionals.connect, set = optionals.set, disconnect = optionals.disconnect, delete = optionals.delete, update = optionals.update, updateMany = optionals.updateMany, deleteMany = optionals.deleteMany, upsert = optionals.upsert }
 
 
 type alias ProjectUpdateManyWithoutImagesInputOptionalFields =
     { create : OptionalArgument (List ProjectCreateWithoutImagesInput)
     , connect : OptionalArgument (List ProjectWhereUniqueInput)
+    , set : OptionalArgument (List ProjectWhereUniqueInput)
     , disconnect : OptionalArgument (List ProjectWhereUniqueInput)
     , delete : OptionalArgument (List ProjectWhereUniqueInput)
     , update : OptionalArgument (List ProjectUpdateWithWhereUniqueWithoutImagesInput)
@@ -4352,6 +4379,7 @@ references to itself either directly (recursive) or indirectly (circular). See
 type alias ProjectUpdateManyWithoutImagesInputRaw =
     { create : OptionalArgument (List ProjectCreateWithoutImagesInput)
     , connect : OptionalArgument (List ProjectWhereUniqueInput)
+    , set : OptionalArgument (List ProjectWhereUniqueInput)
     , disconnect : OptionalArgument (List ProjectWhereUniqueInput)
     , delete : OptionalArgument (List ProjectWhereUniqueInput)
     , update : OptionalArgument (List ProjectUpdateWithWhereUniqueWithoutImagesInput)
@@ -4372,7 +4400,7 @@ type ProjectUpdateManyWithoutImagesInput
 encodeProjectUpdateManyWithoutImagesInput : ProjectUpdateManyWithoutImagesInput -> Value
 encodeProjectUpdateManyWithoutImagesInput (ProjectUpdateManyWithoutImagesInput input) =
     Encode.maybeObject
-        [ ( "create", (encodeProjectCreateWithoutImagesInput |> Encode.list) |> Encode.optional input.create ), ( "connect", (encodeProjectWhereUniqueInput |> Encode.list) |> Encode.optional input.connect ), ( "disconnect", (encodeProjectWhereUniqueInput |> Encode.list) |> Encode.optional input.disconnect ), ( "delete", (encodeProjectWhereUniqueInput |> Encode.list) |> Encode.optional input.delete ), ( "update", (encodeProjectUpdateWithWhereUniqueWithoutImagesInput |> Encode.list) |> Encode.optional input.update ), ( "updateMany", (encodeProjectUpdateManyWithWhereNestedInput |> Encode.list) |> Encode.optional input.updateMany ), ( "deleteMany", (encodeProjectScalarWhereInput |> Encode.list) |> Encode.optional input.deleteMany ), ( "upsert", (encodeProjectUpsertWithWhereUniqueWithoutImagesInput |> Encode.list) |> Encode.optional input.upsert ) ]
+        [ ( "create", (encodeProjectCreateWithoutImagesInput |> Encode.list) |> Encode.optional input.create ), ( "connect", (encodeProjectWhereUniqueInput |> Encode.list) |> Encode.optional input.connect ), ( "set", (encodeProjectWhereUniqueInput |> Encode.list) |> Encode.optional input.set ), ( "disconnect", (encodeProjectWhereUniqueInput |> Encode.list) |> Encode.optional input.disconnect ), ( "delete", (encodeProjectWhereUniqueInput |> Encode.list) |> Encode.optional input.delete ), ( "update", (encodeProjectUpdateWithWhereUniqueWithoutImagesInput |> Encode.list) |> Encode.optional input.update ), ( "updateMany", (encodeProjectUpdateManyWithWhereNestedInput |> Encode.list) |> Encode.optional input.updateMany ), ( "deleteMany", (encodeProjectScalarWhereInput |> Encode.list) |> Encode.optional input.deleteMany ), ( "upsert", (encodeProjectUpsertWithWhereUniqueWithoutImagesInput |> Encode.list) |> Encode.optional input.upsert ) ]
 
 
 buildProjectUpdateManyWithoutPictureInput : (ProjectUpdateManyWithoutPictureInputOptionalFields -> ProjectUpdateManyWithoutPictureInputOptionalFields) -> ProjectUpdateManyWithoutPictureInput
@@ -4380,14 +4408,15 @@ buildProjectUpdateManyWithoutPictureInput fillOptionals =
     let
         optionals =
             fillOptionals
-                { create = Absent, connect = Absent, disconnect = Absent, delete = Absent, update = Absent, updateMany = Absent, deleteMany = Absent, upsert = Absent }
+                { create = Absent, connect = Absent, set = Absent, disconnect = Absent, delete = Absent, update = Absent, updateMany = Absent, deleteMany = Absent, upsert = Absent }
     in
-    ProjectUpdateManyWithoutPictureInput { create = optionals.create, connect = optionals.connect, disconnect = optionals.disconnect, delete = optionals.delete, update = optionals.update, updateMany = optionals.updateMany, deleteMany = optionals.deleteMany, upsert = optionals.upsert }
+    ProjectUpdateManyWithoutPictureInput { create = optionals.create, connect = optionals.connect, set = optionals.set, disconnect = optionals.disconnect, delete = optionals.delete, update = optionals.update, updateMany = optionals.updateMany, deleteMany = optionals.deleteMany, upsert = optionals.upsert }
 
 
 type alias ProjectUpdateManyWithoutPictureInputOptionalFields =
     { create : OptionalArgument (List ProjectCreateWithoutPictureInput)
     , connect : OptionalArgument (List ProjectWhereUniqueInput)
+    , set : OptionalArgument (List ProjectWhereUniqueInput)
     , disconnect : OptionalArgument (List ProjectWhereUniqueInput)
     , delete : OptionalArgument (List ProjectWhereUniqueInput)
     , update : OptionalArgument (List ProjectUpdateWithWhereUniqueWithoutPictureInput)
@@ -4405,6 +4434,7 @@ references to itself either directly (recursive) or indirectly (circular). See
 type alias ProjectUpdateManyWithoutPictureInputRaw =
     { create : OptionalArgument (List ProjectCreateWithoutPictureInput)
     , connect : OptionalArgument (List ProjectWhereUniqueInput)
+    , set : OptionalArgument (List ProjectWhereUniqueInput)
     , disconnect : OptionalArgument (List ProjectWhereUniqueInput)
     , delete : OptionalArgument (List ProjectWhereUniqueInput)
     , update : OptionalArgument (List ProjectUpdateWithWhereUniqueWithoutPictureInput)
@@ -4425,7 +4455,7 @@ type ProjectUpdateManyWithoutPictureInput
 encodeProjectUpdateManyWithoutPictureInput : ProjectUpdateManyWithoutPictureInput -> Value
 encodeProjectUpdateManyWithoutPictureInput (ProjectUpdateManyWithoutPictureInput input) =
     Encode.maybeObject
-        [ ( "create", (encodeProjectCreateWithoutPictureInput |> Encode.list) |> Encode.optional input.create ), ( "connect", (encodeProjectWhereUniqueInput |> Encode.list) |> Encode.optional input.connect ), ( "disconnect", (encodeProjectWhereUniqueInput |> Encode.list) |> Encode.optional input.disconnect ), ( "delete", (encodeProjectWhereUniqueInput |> Encode.list) |> Encode.optional input.delete ), ( "update", (encodeProjectUpdateWithWhereUniqueWithoutPictureInput |> Encode.list) |> Encode.optional input.update ), ( "updateMany", (encodeProjectUpdateManyWithWhereNestedInput |> Encode.list) |> Encode.optional input.updateMany ), ( "deleteMany", (encodeProjectScalarWhereInput |> Encode.list) |> Encode.optional input.deleteMany ), ( "upsert", (encodeProjectUpsertWithWhereUniqueWithoutPictureInput |> Encode.list) |> Encode.optional input.upsert ) ]
+        [ ( "create", (encodeProjectCreateWithoutPictureInput |> Encode.list) |> Encode.optional input.create ), ( "connect", (encodeProjectWhereUniqueInput |> Encode.list) |> Encode.optional input.connect ), ( "set", (encodeProjectWhereUniqueInput |> Encode.list) |> Encode.optional input.set ), ( "disconnect", (encodeProjectWhereUniqueInput |> Encode.list) |> Encode.optional input.disconnect ), ( "delete", (encodeProjectWhereUniqueInput |> Encode.list) |> Encode.optional input.delete ), ( "update", (encodeProjectUpdateWithWhereUniqueWithoutPictureInput |> Encode.list) |> Encode.optional input.update ), ( "updateMany", (encodeProjectUpdateManyWithWhereNestedInput |> Encode.list) |> Encode.optional input.updateMany ), ( "deleteMany", (encodeProjectScalarWhereInput |> Encode.list) |> Encode.optional input.deleteMany ), ( "upsert", (encodeProjectUpsertWithWhereUniqueWithoutPictureInput |> Encode.list) |> Encode.optional input.upsert ) ]
 
 
 buildProjectUpdateWithWhereUniqueWithoutImagesInput : ProjectUpdateWithWhereUniqueWithoutImagesInputRequiredFields -> ProjectUpdateWithWhereUniqueWithoutImagesInput

@@ -46,6 +46,7 @@ decodeContact : SelectionSet Type.Contact Object.Contact
 decodeContact =
     Graphql.SelectionSet.succeed Type.Contact
         |> with Contact.color
+        |> with Contact.hue
         |> with Contact.href
         |> with Contact.name
         |> with Contact.action
