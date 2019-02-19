@@ -34,7 +34,7 @@ view { contacts, projects, blogPosts } =
                     ]
                     [ h1
                         [ jacky
-                            [ reg [ bg white, c black, ph 3, f 1, fw 7, flex, itemsCenter ]
+                            [ reg [ bg white, c black, ph 3, lh 1, f 1, fw 7, flex, itemsCenter ]
                             , act [ J.track 1 ]
                             ]
                         ]
