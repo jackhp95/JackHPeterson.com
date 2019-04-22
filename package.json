@@ -1,5 +1,5 @@
 {
-  "name": "JackHPeterson.com",
+  "name": "jackhpterson.com",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "db": "elm-graphql https://api-euwest.graphcms.com/v1/cjramrrgj09zi01ht13w1xqot/master --base DB --output src/elm",
     "tidy": "npx elm-format . --yes",
+    "build": "create-elm-app build",
     "deploy": "rm -rf ./docs/ && cp -a -R ./build/. ./docs/",
     "full-deploy": "rm -rf ./node_modules && rm -rf ./elm-stuff && npm i && npm run db && npx elm-app build && npm run deploy && npm run tidy"
   },
