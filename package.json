@@ -6,11 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "db": "elm-graphql https://api-euwest.graphcms.com/v1/cjramrrgj09zi01ht13w1xqot/master --base DB --output src/elm",
-    "tidy": "npx elm-format . --yes",
-    "build": "elm-app build",
-    "deploy": "rm -rf ./docs/ && cp -a -R ./build/. ./docs/",
-    "full-deploy": "rm -rf ./node_modules && rm -rf ./elm-stuff && npm i && npm run db && npx elm-app build && npm run deploy && npm run tidy"
-  },
+    "tidy": "elm-format . --yes",
+    "build": "elm-app build"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jackhp95/JackHPeterson.com.git"
